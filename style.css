@@ -1,3 +1,29 @@
+
+
+
+*, *::after, *::before { 
+
+  box-sizing:border-box;   
+
+} /* Alle elementen gebruiken het border-box model, 
+   zodat padding en border binnen de breedte/hoogte vallen */
+
+
+/*********************/ 
+
+/* CUSTOM PROPERTIES */ 
+
+/*********************/ 
+:root { 
+
+    /* startje */ 
+
+    --color-text:#111; 
+
+    --color-background:#eee; 
+
+} 
+
 /* ========== Basis ========== */
 *, *::after, *::before { 
 
@@ -20,6 +46,199 @@
 
 } 
 
+
+
+nav img {
+  width: 150px;  /* gewenste breedte */
+  height: auto;  /* verhoudingen behouden */
+}
+
+h1 {
+  color:#333333;
+}
+
+
+
+/* bron:w3schools*//*met..gaat 1 map omhoog, dan naar images */
+main nav {
+  background-image: url('https://cdn.askoscholen.nl/www.achthoek.nl/template/img/bg-toptaken.png');
+  background-size: cover;      /* Vult hele container, behoud aspect ratio */
+  background-position: center; /* Centraal uitlijnen */
+  height: 200px;
+  width: 100vw;                /* Volledige breedte van viewport */
+}
+
+
+
+
+
+
+#informatie-momenten {
+  color: white;                /* witte tekst */
+  background-color: rgb(108, 64, 108);   /* paarse achtergrond */
+  padding: 10px 20px;          /* wat binnenruimte voor mooiere knop */
+  border-radius: 8px;          /* afgeronde hoeken, optioneel */
+  text-decoration: none;       /* onderstreping weghalen */
+  display: inline-block;       /* om padding netjes te laten werken */
+}
+
+
+
+
+
+
+
+a:link {
+  color: rgb(5, 30, 252);
+}
+
+a.link-knoppen {
+  color: #005499;
+ 
+}
+
+ul li img{
+  width: 150px;  /* gewenste breedte */
+  height: auto; 
+  
+}
+
+
+ /* vraag docent of dit goed is ,ofen stijl voor die kaarten onder social media */
+section img {
+  width: 100px;
+}
+section svg {
+  width: 20px;
+
+}
  
 
+ h2 {
+  background-image: url('../images/balk2.foto.png');
+  text-align: center;
+ }
+
+ .link-knoppen {
+  padding: 10px 20px;
+  border: 2px solid rgb(2, 2, 84);
+  color: rgb(2, 2, 84);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 9999px; /* maakt het volledig rond (capsule) */
  
+}
+
+.link-knoppen:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+footer {
+  background-image: url('https://cdn.askoscholen.nl/www.achthoek.nl/template/img/footer-bg.png');
+}
+
+/* ====== Basis header layout ====== */
+header {
+  display: grid; /* Maak header een grid-container zodat je rijen en kolommen kan definiëren */
+  grid-template-columns: auto 1fr auto auto; /* Maak 4 kolommen: logo (auto), navigatie (flexibel 1fr), en twee vaste knoppen */
+  grid-template-rows: auto; /* Standaard één rij met automatische hoogte */
+  grid-template-areas: "logo nav btn1 btn2"; /* Benoem de gebieden om elementen te plaatsen */
+  align-items: center; /* Verticaal centreren van inhoud in gridrij */
+  gap: 12px; /* Ruimte van 12px tussen kolommen */
+  padding: 12px 16px; /* Binnenmarges: 12px boven/onder, 16px links/rechts */
+  background: #fff; /* Witte achtergrondkleur */
+  box-shadow: 0 2px 6px rgba(0,0,0,.05); /* Zachte schaduw onder de header */
+}
+
+/* Logo */
+header > img {
+  grid-area: logo; /* Plaats het logo in het 'logo' gridgebied */
+  height: 40px; /* Stel hoogte in op 40 pixels */
+  width: auto; /* Breedte schaalt automatisch mee */
+  display: block; /* Verwijder ongewenste witruimte rond afbeelding */
+}
+
+/* Navigatie */
+header nav {
+  grid-area: nav; /* Plaats navigatie in het 'nav' gridgebied */
+  display: none; /* Verberg standaard (mobiel) */
+  margin-top: 8px; /* Ruimte boven de navigatie */
+}
+
+/* Navigatielijst */
+header nav ul {
+  display: flex; /* Gebruik flexbox voor horizontale navigatie-items */
+  gap: 16px; /* Ruimte tussen navigatie-items */
+  list-style: none; /* Verwijder standaard lijstpunten */
+  margin: 0; /* Verwijder standaard marge */
+  padding: 0; /* Verwijder standaard padding */
+}
+
+/* Navigatielinks */
+header nav a {
+  text-decoration: none; /* Verwijder onderlijnen van links */
+  color: #111; /* Tekstkleur donkergrijs */
+  font-size: 0.95rem; /* Iets kleinere lettergrootte */
+}
+
+/* Knoppen */
+header > button {
+  width: 44px; /* Vaste breedte van knop */
+  height: 44px; /* Vaste hoogte van knop */
+  display: grid; /* Maak knop een grid-container om inhoud te centreren */
+  place-items: center; /* Centreer inhoud horizontaal en verticaal */
+  border: 1px solid #ddd; /* Lichtgrijze rand */
+  border-radius: 50%; /* Maak knoppen rond */
+  background: #fff; /* Witte achtergrond */
+  cursor: pointer; /* Cursor verandert in pointer bij hover */
+  padding: 0; /* Geen interne marge */
+}
+
+/* Eerste knop specifieke plaatsing */
+header > button:first-of-type {
+  grid-area: btn1; /* Plaats eerste knop in 'btn1' gebied */
+  margin-right: 8px; /* Ruimte rechts van eerste knop */
+}
+
+/* Tweede knop specifieke plaatsing */
+header > button:last-of-type {
+  grid-area: btn2; /* Plaats tweede knop in 'btn2' gebied */
+}
+
+/* SVG iconen in knoppen */
+header > button svg {
+  width: 22px; /* Breedte van SVG icoon */
+  height: 22px; /* Hoogte van SVG icoon */
+  color: #111; /* Kleur van icoon */
+}
+
+/* Focus styling voor toegankelijkheid */
+header > button:focus-visible,
+header nav a:focus-visible,
+header input[type="search"]:focus-visible {
+  outline: 3px solid #111; /* Dikke zwarte outline bij focus */
+  outline-offset: 2px; /* Outline iets van element af */
+}
+
+/* Zoekveld */
+header input[type="search"] {
+  grid-column: 1 / -1; /* Zoekveld beslaat volledige breedte van grid */
+  margin-top: 12px; /* Ruimte boven zoekveld */
+  width: 100%; /* Zoekveld vult breedte */
+  height: 44px; /* Hoogte van zoekveld */
+  border: 1px solid #ddd; /* Grijze rand om zoekveld */
+  border-radius: 999px; /* Ronde, pilvorm */
+  background: #fafafa; /* Lichtgrijze achtergrond */
+  padding: 0 44px 0 14px; /* Padding met ruimte rechts (voor icoon) */
+  font-size: 1rem; /* Lettergrootte */
+  box-shadow: 0 1px 4px rgba(0,0,0,.05); /* Subtiele schaduw */
+}
+
+
+
+
+
+/* ====== Responsive maken ====== */
