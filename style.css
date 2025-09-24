@@ -47,88 +47,187 @@
 } 
 
 
+/* =================== HEADER =================== */
 
-nav img {
-  width: 150px;  /* gewenste breedte */
-  height: auto;  /* verhoudingen behouden */
+/* Basis header (grid lay-out) */
+header {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto; 
+  grid-template-areas: "logo nav btn1 btn2";
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
 }
 
-h1 {
-  color:#333333;
+/* Logo in header */
+header > img {
+  grid-area: logo;
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Navigatie in header */
+header nav {
+  grid-area: nav;
+  margin-top: 0;
+}
+
+header nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links in header menu */
+header nav a {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.95rem;
+}
+
+/* Knoppen in header (rechts: inloggen / menu) */
+header > button {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+
+header > button:first-of-type { grid-area: btn1; margin-right: 8px; }
+header > button:last-of-type  { grid-area: btn2; }
+
+header > button svg {
+  width: 22px;
+  height: 22px;
+  color: #111;
+}
+
+/* Zoekveld in header */
+header input[type="search"] {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  width: 100%;
+  height: 44px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  background: #fafafa;
+  padding: 0 44px 0 14px;
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+
+/* Toegankelijkheid: focus */
+header > button:focus-visible,
+header nav a:focus-visible,
+header input[type="search"]:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
 }
 
 
+/* =================== MAIN / NAVIGATIE BLOK =================== */
 
-/* bron:w3schools*//*met..gaat 1 map omhoog, dan naar images */
+/* Achtergrond met illustratie */
 main nav {
   background-image: url('https://cdn.askoscholen.nl/www.achthoek.nl/template/img/bg-toptaken.png');
-  background-size: cover;      /* Vult hele container, behoud aspect ratio */
-  background-position: center; /* Centraal uitlijnen */
-  height: 200px;
-  width: 100vw;                /* Volledige breedte van viewport */
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* links afbeelding, rechts knoppen */
+  gap: 2rem;
+  align-items: center;
+  padding: 1rem;
 }
 
+/* Afbeelding links in main nav */
+main nav img {
+  width: 170px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
 
+/* Lijst met knoppen */
+main nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: center;
+  align-items: flex-start;
+}
 
+/* Eerste 4 knoppen (wit met zwarte tekst, hover = paars) */
+main nav ul li:nth-child(-n+4) a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ffffff; /* wit */
+  color: #000000;            /* zwarte tekst */
+  border-radius: 300px;      /* ronde pilvorm */
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
+main nav ul li:nth-child(-n+4) a:hover,
+main nav ul li:nth-child(-n+4) a:focus {
+  background-color: rgb(108, 64, 108); /* paars hover */
+  color: white; /* tekst wordt wit op hover */
+}
 
-
+/* 5e knop (informatiemomenten: paars = basis, wit tekst) */
 #informatie-momenten {
-  color: white;                /* witte tekst */
-  background-color: rgb(108, 64, 108);   /* paarse achtergrond */
-  padding: 10px 20px;          /* wat binnenruimte voor mooiere knop */
-  border-radius: 8px;          /* afgeronde hoeken, optioneel */
-  text-decoration: none;       /* onderstreping weghalen */
-  display: inline-block;       /* om padding netjes te laten werken */
+  background-color: rgb(108, 64, 108);
+  color: white;
+  padding: 20px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+}
+
+/* 
+  Stijl wordt toegepast bij twee verschillende interacties:
+  :hover activeert de stijl bij muisover,
+  :focus activeert de stijl bij toetsenbordfocus.(Bron: W3C Web Accessibility Initiative, 2013)
+*/
+#informatie-momenten:hover,
+#informatie-momenten:focus {
+  background-color: rgb(68, 45, 111); /* donkerder paars hover */
+  color: white;
 }
 
 
+/* =================== ALGEMENE LINK / KNOPPEN STIJLEN =================== */
+
+h1 { color:#333; }
+
+a:link { color: rgb(98, 23, 167); }
 
 
-
-
-
-a:link {
-  color: rgb(5, 30, 252);
-}
-
-a.link-knoppen {
-  color: #005499;
- 
-}
-
-ul li img{
-  width: 150px;  /* gewenste breedte */
-  height: auto; 
-  
-}
-
-
- /* vraag docent of dit goed is ,ofen stijl voor die kaarten onder social media */
-section img {
-  width: 100px;
-}
-section svg {
-  width: 20px;
-
-}
- 
-
- h2 {
-  background-image: url('../images/balk2.foto.png');
-  text-align: center;
- }
-
- .link-knoppen {
+/* Algemene "lees meer" / extra knoppen */
+.link-knoppen {
   padding: 10px 20px;
   border: 2px solid rgb(2, 2, 84);
   color: rgb(2, 2, 84);
   text-decoration: none;
-  border-radius: 5px;
   font-weight: bold;
+  border-radius: 9999px; /* volledig rond */
   transition: 0.3s;
-  border-radius: 9999px; /* maakt het volledig rond (capsule) */
- 
 }
 
 .link-knoppen:hover {
@@ -136,109 +235,90 @@ section svg {
   color: white;
 }
 
+ul li img {
+  width: 150px;
+  height: auto;
+}
+
+
+
+
+
+/* =================== SECTIONS =================== */
+
+/* afbeeldingen en iconen in secties */
+section img { width: 100px; }
+section svg { width: 20px; }
+
+/* styling kop h2 */
+h2 {
+  background-image: url('../images/balk2.foto.png');
+  text-align: center;
+}
+
+
+/* =================== FOOTER =================== */
+
 footer {
   background-image: url('https://cdn.askoscholen.nl/www.achthoek.nl/template/img/footer-bg.png');
 }
 
-/* ====== Basis header layout ====== */
-header {
-  display: grid; /* Maak header een grid-container zodat je rijen en kolommen kan definiëren */
-  grid-template-columns: auto 1fr auto auto; /* Maak 4 kolommen: logo (auto), navigatie (flexibel 1fr), en twee vaste knoppen */
-  grid-template-rows: auto; /* Standaard één rij met automatische hoogte */
-  grid-template-areas: "logo nav btn1 btn2"; /* Benoem de gebieden om elementen te plaatsen */
-  align-items: center; /* Verticaal centreren van inhoud in gridrij */
-  gap: 12px; /* Ruimte van 12px tussen kolommen */
-  padding: 12px 16px; /* Binnenmarges: 12px boven/onder, 16px links/rechts */
-  background: #fff; /* Witte achtergrondkleur */
-  box-shadow: 0 2px 6px rgba(0,0,0,.05); /* Zachte schaduw onder de header */
+
+/* =================== RESPONSIVE =================== */
+/* media queries later toevoegen */
+.kaart-container {
+  display: flex;
+  flex-direction: column;  /* standaard onder elkaar */
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-/* Logo */
-header > img {
-  grid-area: logo; /* Plaats het logo in het 'logo' gridgebied */
-  height: 40px; /* Stel hoogte in op 40 pixels */
-  width: auto; /* Breedte schaalt automatisch mee */
-  display: block; /* Verwijder ongewenste witruimte rond afbeelding */
+.kaart {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 300px;  /* flexibel groeien met basis 300px */
+  max-width: 100%;
 }
 
-/* Navigatie */
-header nav {
-  grid-area: nav; /* Plaats navigatie in het 'nav' gridgebied */
-  display: none; /* Verberg standaard (mobiel) */
-  margin-top: 8px; /* Ruimte boven de navigatie */
+.kaart img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
-/* Navigatielijst */
-header nav ul {
-  display: flex; /* Gebruik flexbox voor horizontale navigatie-items */
-  gap: 16px; /* Ruimte tussen navigatie-items */
-  list-style: none; /* Verwijder standaard lijstpunten */
-  margin: 0; /* Verwijder standaard marge */
-  padding: 0; /* Verwijder standaard padding */
+.kaart-titel {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
 }
 
-/* Navigatielinks */
-header nav a {
-  text-decoration: none; /* Verwijder onderlijnen van links */
-  color: #111; /* Tekstkleur donkergrijs */
-  font-size: 0.95rem; /* Iets kleinere lettergrootte */
+.kaart-beschrijving {
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-/* Knoppen */
-header > button {
-  width: 44px; /* Vaste breedte van knop */
-  height: 44px; /* Vaste hoogte van knop */
-  display: grid; /* Maak knop een grid-container om inhoud te centreren */
-  place-items: center; /* Centreer inhoud horizontaal en verticaal */
-  border: 1px solid #ddd; /* Lichtgrijze rand */
-  border-radius: 50%; /* Maak knoppen rond */
-  background: #fff; /* Witte achtergrond */
-  cursor: pointer; /* Cursor verandert in pointer bij hover */
-  padding: 0; /* Geen interne marge */
-}
-
-/* Eerste knop specifieke plaatsing */
-header > button:first-of-type {
-  grid-area: btn1; /* Plaats eerste knop in 'btn1' gebied */
-  margin-right: 8px; /* Ruimte rechts van eerste knop */
-}
-
-/* Tweede knop specifieke plaatsing */
-header > button:last-of-type {
-  grid-area: btn2; /* Plaats tweede knop in 'btn2' gebied */
-}
-
-/* SVG iconen in knoppen */
-header > button svg {
-  width: 22px; /* Breedte van SVG icoon */
-  height: 22px; /* Hoogte van SVG icoon */
-  color: #111; /* Kleur van icoon */
-}
-
-/* Focus styling voor toegankelijkheid */
-header > button:focus-visible,
-header nav a:focus-visible,
-header input[type="search"]:focus-visible {
-  outline: 3px solid #111; /* Dikke zwarte outline bij focus */
-  outline-offset: 2px; /* Outline iets van element af */
-}
-
-/* Zoekveld */
-header input[type="search"] {
-  grid-column: 1 / -1; /* Zoekveld beslaat volledige breedte van grid */
-  margin-top: 12px; /* Ruimte boven zoekveld */
-  width: 100%; /* Zoekveld vult breedte */
-  height: 44px; /* Hoogte van zoekveld */
-  border: 1px solid #ddd; /* Grijze rand om zoekveld */
-  border-radius: 999px; /* Ronde, pilvorm */
-  background: #fafafa; /* Lichtgrijze achtergrond */
-  padding: 0 44px 0 14px; /* Padding met ruimte rechts (voor icoon) */
-  font-size: 1rem; /* Lettergrootte */
-  box-shadow: 0 1px 4px rgba(0,0,0,.05); /* Subtiele schaduw */
+/* Groter scherm: naast elkaar */
+@media (min-width: 768px) {
+  .kaart-container {
+    flex-direction: row;   /* naast elkaar */
+    flex-wrap: wrap;       /* breek door als nodig */
+    justify-content: center;
+  }
+  .kaart {
+    max-width: 300px;       /* max breedte per kaart */
+  }
 }
 
 
 
 
 
-/* ====== Responsive maken ====== */
+

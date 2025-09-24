@@ -13,8 +13,6 @@
 <!-- Opmerking: Alt-teksten worden later nog toegevoegd. -->
  
 
-
-
 <header>
   <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool" /> <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
 
@@ -49,18 +47,18 @@
 
 <main>
 
-<nav>   <!-- 
-  ///Ruba deze foto mag niet in nav dus haal hem als css achtergrond//
-  .
--->
-  <img src="images/kinder-foto.jpg" alt="">  
+<nav>  
+
+    <img id="kinder-illustra-3.jgp" src="images/kinder-illustr-3.jpg" alt="Beschrijving van foto">
+
+  
   
   <ul>
     <li><a href="/aanmelden">Aanmelden</a></li>
     <li><a href="/contact">Contact</a></li>
     <li><a href="/jaarkalender">Jaarkalender</a></li>
     <li><a href="/onderwijs">Ontwikkelingsgericht Onderwijs</a></li>
-    <li><a id="informatie-momenten" href="#">Informatiemomenten / information meetings</a></li>
+    <li><a id="informatie-momenten" href="#">Informatiemomenten en meetings</a></li>
   </ul>
 </nav>
 
@@ -93,20 +91,23 @@
     Social media
 </h2>
 
-<section>
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
-    <!-- Icon from FormKit Icons by FormKit, Inc - [https://github.com/formkit/formkit/blob/master/packages/icons/LICENSE](https://github.com/formkit/formkit/blob/master/packages/icons/LICENSE) --><path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/></svg>
+<section class="kaart">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+    <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
+  </svg>
 
-<strong>De Achthoek</strong>
-<p>14-9-202</p>
-<img src="images/media.foto.1.png" alt="">
-<!-- Opmerking: Alt-teksten worden later nog toegevoegd. -->
+  <strong>De Achthoek</strong>
+  <p>14-9-202</p>
+  <img src="images/media.foto.1.png" alt="Foto van De Achthoek">
 
-<p>
+  <p>
     De groepen 1-2 gingen naar Sprookjes wonderland! 
     Het was een betoverend mooie dag! 
-</p>
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><!-- Icon from Famicons by Family - [https://github.com/familyjs/famicons/blob/main/LICENSE](https://github.com/familyjs/famicons/blob/main/LICENSE) --><path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/></svg>
+  </p>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+    <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
+  </svg>
 </section>
 
 <a href="#" class="link-knoppen">Meer berichten</a>
@@ -115,27 +116,28 @@
     Laatste nieuws
 </h2>
 
-<ul>
-    <li>
-        <img src="images/leer.meer1.png" alt="">
-        <h3>Nieuwsbrief start - 26 augustus 2025 </h3>
-         <p>
-            Agenda - Wat gebeurt er zoal - Studiedag Partou
-            Meelopen naar de klas - Ouder- en kindteam 
-            Vroegschools aanbod 
-         </p>
-    </li>
+<ul class="kaart-container">
+  <li class="kaart">
+    <img src="images/leer.meer1.png" alt="Afbeelding nieuwsbrief 26 augustus">
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3>
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal - Studiedag Partou<br>
+      Meelopen naar de klas - Ouder- en kindteam<br>
+      Vroegschools aanbod
+    </p>
+  </li>
 
-    <li>
-        <img src="images/leer.meer2.png" alt="">
-        <h3>Extra Nieuwsbrief - 8 juli 2025 </h3>
-         <p>
-            Agenda - Wat gebeurt er zoal -   
-            Herinnering ParkPopPicknick - Verandering administratie - Afscheid van Suzanne - Malliha met pensioen - 
-            Afscheid van Paul en Jessey - Overblijf - Gratis OV kinderen.
-         </p>
-    </li>
+  <li class="kaart">
+    <img src="images/leer.meer2.png" alt="Afbeelding extra nieuwsbrief 8 juli">
+    <h3 class="kaart-titel">Extra Nieuwsbrief - 8 juli 2025</h3>
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal -<br>
+      Herinnering ParkPopPicknick - Verandering administratie - Afscheid van Suzanne - Malliha met pensioen -<br>
+      Afscheid van Paul en Jessey - Overblijf - Gratis OV kinderen.
+    </p>
+  </li>
 </ul>
+
 
 <h2>
     Activiteiten
@@ -144,9 +146,12 @@
 <!-- 
   aria-labelledby  Dit zorgt ervoor dat screenreaders en andere hulpmiddelen deze sectie correct kunnen benoemen en herkennen,
   waardoor de toegankelijkheid verbetert.
+
+
+  Ruba kijk onder is iets verkeerd , vraag over
 -->
 <section aria-labelledby="activiteiten">
-  <h2 id="activiteiten">Activiteiten</h2>
+  <h2>Activiteiten</h2>
   <h3>September 2025</h3>
   <ul>
     <li>
@@ -187,3 +192,4 @@
 
 </body> 
 </html>
+

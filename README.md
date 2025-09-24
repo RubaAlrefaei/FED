@@ -41,11 +41,11 @@ responsive – ik wil oefenen om mijn website mobile-first te bouwen en daarna u
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="images/miro-screen1.jpg" width="375px" alt="omschrijving van de pagina">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="images/miro-screen2.jpg" width="375px" alt="omschrijving van de pagina">
   
 </details>
 
@@ -168,7 +168,21 @@ De site is visueel duidelijk, maar voor screenreader-gebruikers erg lastig te be
   
   
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  Dit ging goed:
+
+Mijn HTML en CSS zijn tot nu toe netjes opgebouwd en semantisch correct.
+
+De screenreader-test en het eerste verslag hierover zijn goed gelukt.
+
+Ik heb feedback verwerkt, zoals het gebruik van ul/li voor kaarten die bij elkaar horen, en achtergrondafbeeldingen in CSS plaatsen i.p.v. HTML.
+
+Dit was lastig:
+
+De originele vormgeving van de gekozen site is ingewikkeld, vooral door de vele details, hover-effecten en foto-layouts.
+
+Het was zoeken hoe ik dit het best kan vertalen naar een responsive versie zonder alles 1-op-1 te hoeven namaken.
+
+Ik moet nog screenshots toevoegen van mijn breakdownschets en de toegankelijkheidschecklist.
 
 
   ### Agenda voor meeting
@@ -216,6 +230,9 @@ De site is visueel duidelijk, maar voor screenreader-gebruikers erg lastig te be
 
   ### Stand van zaken
   hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  
+  ### wellicht nog een dynamisch deel (bijv filter): 
+  <img src="images/scree.redme1.png" width="375px" alt="screen van wat wil ik anders doen informatiemomenten link">
 
 
   ### Agenda voor meeting
@@ -278,6 +295,6 @@ De site is visueel duidelijk, maar voor screenreader-gebruikers erg lastig te be
 
   1. bron 1
   2. bron 2
-  3. ...
+  3. BrowserStack. (2025, juni 9). Best Practices for Responsive Web Design: Tips to Improve UX & Performance. BrowserStack Blog. Geraadpleegd op 24 september 2025, van https://www.browserstack.com/guide/best-practice-responsive-design
 
 </details>
