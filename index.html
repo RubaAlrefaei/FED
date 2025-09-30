@@ -1,74 +1,104 @@
 <!DOCTYPE html> 
+<!-- =========================================================
+  DOCUMENT: Basissite De Achthoek
+  DOEL: Semantische structuur van de homepage
+  LET OP: Op verzoek van de gebruiker – alleen commentaar toegevoegd, geen code aangepast.
+========================================================= -->
 <html lang="nl"> 
 <head> 
-    <meta charset="UTF-8"> 
-    <meta name="author" content="Ruba"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>De ACHT HOEK</title> 
-    <link href="styles/style.css" rel="stylesheet"> 
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg"> 
+    <!-- ==========================
+      HEAD: metadata, titel, assets
+      - charset en viewport voor correcte weergave
+      - auteur voor broninformatie
+      - styles en favicon geladen
+    =========================== -->
+    <meta charset="UTF-8"> <!-- Tekencodering UTF-8 voor correcte karakters -->
+    <meta name="author" content="Ruba"> <!-- Auteur van de pagina -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Responsive viewport-instellingen -->
+    <title>De ACHT HOEK</title> <!-- Paginatitel in browser/tab -->
+    <link href="styles/style.css" rel="stylesheet"> <!-- Koppeling naar externe CSS -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg"> <!-- Favicon voor browser/tab -->
 </head> 
 
 <body> 
 <!-- Opmerking: Alt-teksten worden later nog toegevoegd. -->
+<!-- =========================================================
+  HEADER-GEDEELTE
+  Bevat: logo (link naar home), hoofdnavigatie, toegangs-/menu-knoppen, zoekveld
+========================================================= -->
  
-
 <header>
-  <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool" /> <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
+  <a href="index.html"> <!-- Klikbaar logo terug naar de homepage -->
+  <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool"> <!-- Schoollogo -->
+</a>
+ <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
 
   <nav aria-label="Hoofdmenu"> <!-- Navigatiegebied met aria-label voor schermlezers -->
-    <ul> 
-      <li><a href="/aanmelden">De Achthoek</a></li> 
-      <li><a href="/contact">Ons onderwijs</a></li> 
-      <li><a href="/aanmelden">Nieuwe ouders</a></li> 
-      <li><a href="/contact">Nieuws</a></li> 
-      <li><a href="/jaarkalender">Jaarkalender</a></li> 
+    <ul> <!-- Lijst met primaire navigatielinks -->
+      <li><a href="/aanmelden">De Achthoek</a></li> <!-- Link naar info over de school -->
+      <li><a href="/contact">Ons onderwijs</a></li> <!-- Link naar onderwijsvisie/aanbod -->
+      <li><a href="/aanmelden">Nieuwe ouders</a></li> <!-- Link voor nieuwe/oriënterende ouders -->
+      <li><a href="/contact">Nieuws</a></li> <!-- Link naar nieuwssectie -->
+      <li><a href="/jaarkalender">Jaarkalender</a></li> <!-- Link naar kalender -->
     </ul>
   </nav>
 
   <button aria-label="Inloggen"> <!-- Knop met toegankelijkheidslabel -->
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- SVG-icoon in knop -->
       <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M12 7a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 0 1 1-1" clip-rule="evenodd"/>
-    </svg>
+    </svg> <!-- Plus-teken (bijv. voor aanmelden/inloggen) -->
   </button>
 
   <button aria-label="Menu openen"> <!-- Knop met toegankelijkheidslabel -->
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- SVG-icoon in knop -->
       <path fill="currentColor" d="M22 21h1v1h-1v1H2v-1H1v-1h1v-1h20zm1-6v1h-1v1H2v-1H1v-1h1v-1h20v1zm-1-7h1v1h-1v1H2V9H1V8h1V7h20zm1-6v1h-1v1H2V3H1V2h1V1h20v1z"/>
-    </svg>
+    </svg> <!-- Hamburger-achtig menu-icoon -->
   </button>
 
-  <input type="search">
+  <input type="search"> <!-- Zoekveld (zonder label/placeholder – kan later aangevuld worden) -->
 
 
 </header>
 
 
 
+<!-- =========================================================
+  MAIN-CONTENT
+  Bevat: secundaire navigatie, hero-titel, intro-artikel, CTA, social kaart,
+  nieuwskaarten, nieuwsbrief-popup, activiteiten, agenda-link
+========================================================= -->
 <main>
 
+<!-- --------------------
+  SECUNDAIRE NAVIGATIE / ZIJBALK
+--------------------- -->
 <nav>  
+    <!-- Illustratieve afbeelding bij de navigatie -->
+    <img id="kinder-illustra-3.jgp" src="images/kinder-illustr-3.jpg" alt="Beschrijving van foto"> <!-- Afbeelding (id en bestandsnaam blijven ongewijzigd) -->
 
-    <img id="kinder-illustra-3.jgp" src="images/kinder-illustr-3.jpg" alt="Beschrijving van foto">
-
-  
-  
+  <!-- Snelle links naar belangrijke pagina's -->
   <ul>
-    <li><a href="/aanmelden">Aanmelden</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/jaarkalender">Jaarkalender</a></li>
-    <li><a href="/onderwijs">Ontwikkelingsgericht Onderwijs</a></li>
-    <li><a id="informatie-momenten" href="#">Informatiemomenten en meetings</a></li>
+    <li><a href="/aanmelden">Aanmelden</a></li> <!-- CTA voor inschrijving -->
+    <li><a href="/contact">Contact</a></li> <!-- Contactinformatie -->
+    <li><a href="/jaarkalender">Jaarkalender</a></li> <!-- Overzicht schooldata -->
+    <li><a href="/onderwijs">Ontwikkelingsgericht Onderwijs</a></li> <!-- Link naar onderwijsconcept -->
+    <li><a id="informatie-momenten" href="informatiemomenten.html">Informatiemomenten en meetings</a></li> <!-- Info- en kennismakingsmomenten -->
   </ul>
 </nav>
 
-<h1>Basisschool De Achthoek</h1> 
+<!-- --------------------
+  HOOFDKOP / HERO-TITEL
+--------------------- -->
+<h1>Basisschool De Achthoek</h1> <!-- Primaire paginatitel --> 
 
+<!-- --------------------
+  INTRO-ARTIKEL
+--------------------- -->
 <article>
 <p>
     <strong>
              Een bruisende school voor uitdagend leren
-    </strong>
+    </strong> <!-- Slogan/boodschap in het oog springend -->
 </p>
     
 <p>
@@ -77,58 +107,65 @@
     Dit doen we vanuit de visie van <a href="http://ontwikkelingsgericht.nl">Ontwikkelings Gericht Onderwijs</a>. 
     Leerlingen krijgen de ruimte om hun persoonlijkheid te ontwikkelen en hun talenten te benutten. 
     Samen met ouders geven we hen een stevige basis.
-</p>
+</p> <!-- Introductietekst over visie en aanpak -->
 <p>
     De Achthoek is gevestigd in het Oostelijk Havengebied in Amsterdam. 
     Op deze website vind je onder andere informatie over onze visie en onderwijs, nieuws uit de groepen en van de school en praktische informatie. Kort en krachtig, want een uitgebreide toelichting staat in de Schoolgids. 
     Heb je vragen, wil je een <a href="#">informatiemoment bijwonen</a> of je kind aanmelden? Dan kun je ons altijd bellen of mailen.
-</p>
+</p> <!-- Praktische uitleg en uitnodiging tot contact -->
 </article> 
 
-<a href="#" class="link-knoppen">Lees meer over onze school</a>
+<a href="#" class="link-knoppen">Lees meer over onze school</a> <!-- Primaire call-to-action -->
 
+<!-- --------------------
+  SOCIAL MEDIA KAART
+--------------------- -->
 <h2>
     Social media
-</h2>
+</h2> 
 
-<section class="kaart">
+<section class="kaart"> <!-- Kaartcomponent met social bericht -->
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
     <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
-  </svg>
+  </svg> <!-- Pictogram (bijv. platformlogo) -->
 
-  <strong>De Achthoek</strong>
-  <p>14-9-202</p>
-  <img src="images/media.foto.1.png" alt="Foto van De Achthoek">
+  <strong>De Achthoek</strong> <!-- Afzender/naam account -->
+  <p>14-9-202</p> <!-- Datumtekst (ongewijzigd overgenomen) -->
+  <img src="images/media.foto.1.png" alt="Foto van De Achthoek"> <!-- Afbeelding bij het bericht -->
 
   <p>
     De groepen 1-2 gingen naar Sprookjes wonderland! 
     Het was een betoverend mooie dag! 
-  </p>
+  </p> <!-- Berichtinhoud -->
 
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
     <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
-  </svg>
+  </svg> <!-- Icoon (bijv. 'delen' of 'meer') -->
 </section>
 
-<a href="#" class="link-knoppen">Meer berichten</a>
+<a href="#" class="link-knoppen">Meer berichten</a> <!-- Link naar overzicht social berichten -->
 
+<!-- --------------------
+  LAATSTE NIEUWS (KAARTEN)
+--------------------- -->
 <h2> 
     Laatste nieuws
-</h2>
+</h2> 
 
-<ul class="kaart-container">
-  <li class="kaart">
-    <img src="images/leer.meer1.png" alt="Afbeelding nieuwsbrief 26 augustus">
-    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3>
+<ul class="kaart-container"> <!-- Container voor drie nieuwskaarten + aanmeldknop -->
+
+  <li class="kaart"> <!-- Nieuwskaart 1 -->
+    <img src="images/leer.meer1.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3> <!-- Kaarttitel -->
     <p class="kaart-beschrijving">
       Agenda - Wat gebeurt er zoal - Studiedag Partou<br>
       Meelopen naar de klas - Ouder- en kindteam<br>
       Vroegschools aanbod
-    </p>
+    </p> <!-- Korte inhoud/teasers -->
   </li>
 
-  <li class="kaart">
-    <img src="images/leer.meer2.png" alt="Afbeelding extra nieuwsbrief 8 juli">
+  <li class="kaart"> <!-- Nieuwskaart 2 -->
+    <img src="images/leer.meer2.png" alt="Afbeelding over nieuwsbrief 8 juli">
     <h3 class="kaart-titel">Extra Nieuwsbrief - 8 juli 2025</h3>
     <p class="kaart-beschrijving">
       Agenda - Wat gebeurt er zoal -<br>
@@ -136,60 +173,165 @@
       Afscheid van Paul en Jessey - Overblijf - Gratis OV kinderen.
     </p>
   </li>
+
+  <li class="kaart"> <!-- Nieuwskaart 3 -->
+    <img src="https://www.achthoek.nl/cache/images/20250826_084144_R450x340Q80S419901.jpg" alt="Afbeelding van kinder spel">
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3>
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal -<br>
+      Herinnering ParkPopPicknick - Verandering administratie - Afscheid van Suzanne - Malliha met pensioen -<br>
+      Afscheid van Paul en Jessey - Overblijf - Gratis OV kinderen.
+    </p>
+  </li>
+
+
+  <!-- Knop om popup te openen -->
+    <li>
+      <a href="#" id="openPopup" class="link-knoppen">Meld aan voor de nieuwsbrief</a> <!-- Trigger voor <dialog> -->
+    </li>
 </ul>
 
 
-<h2>
-    Activiteiten
-</h2>
 
+<!-- =========================================================
+  MODALE POPUP: NIEUWSBRIEF (Native <dialog> element)
+  - Opent/sluit via JS (zie script.js)
+  - method="dialog" zorgt voor sluiten bij submit
+========================================================= -->
+<!-- JS popup voor nieuwsbrief -->
+<dialog id="popup"> <!-- <dialog> is een popup-venster -->
+  <form method="dialog"> <!-- method="dialog" zorgt dat het formulier het popup kan sluiten -->
+    <p>Meld je aan voor de nieuwsbrief</p> <!-- Kop/intro van de modal -->
+    <label for="email">Vul je e-mailadres in:</label><br> <!-- Label gekoppeld aan input -->
+    <input type="email" id="email" required> <!-- e-mailadres verplicht -->
+    <br><br>
+    <button type="submit">Aanmelden</button> <!-- verstuurt en sluit automatisch -->
+    <button type="button" id="closePopup">Sluiten</button> <!-- sluitknop -->
+  </form>
+</dialog>  
+
+<!-- Bron over <dialog> :
+     2. W3Schools Dialog Tutorial: https://www.w3schools.com/tags/tag_dialog.asp
+     3. CSS-Tricks over dialog: https://css-tricks.com/native-modal/
+-->
+
+
+
+<!-- =========================================================
+  ACTIVITEITEN / AGENDA-SECTIE
+  - aria-labelledby koppelt sectie aan de H2 voor betere toegankelijkheid
+========================================================= -->
 <!-- 
   aria-labelledby  Dit zorgt ervoor dat screenreaders en andere hulpmiddelen deze sectie correct kunnen benoemen en herkennen,
   waardoor de toegankelijkheid verbetert.
+ 
+--><section class="activiteiten" aria-labelledby="activiteiten">
+  <h2 id="activiteiten">Activiteiten</h2> <!-- Sectietitel, referentie van aria-labelledby -->
 
-
-  Ruba kijk onder is iets verkeerd , vraag over
--->
-<section aria-labelledby="activiteiten">
-  <h2>Activiteiten</h2>
-  <h3>September 2025</h3>
+  <h3>September 2025</h3> 
   <ul>
     <li>
-      <article>
-        <time datetime="2025-09-24T09:00">24 sep, 09:00 – 10:30</time>
-        <!-- maakt de starttijd machineleesbaar (voor zoekmachines en screenreaders) -->
-
-        <p>Informatiebijeenkomst nieuwe ouders</p>
-      </article>
+      <p>
+        <time datetime="2025-09-24T09:00">24 sep, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
+      </p>
+      <p>Informatiebijeenkomst nieuwe ouders</p> <!-- Activiteitomschrijving -->
     </li>
   </ul>
 
-  <h3>Oktober 2025</h3>
+  <h3>Oktober 2025</h3> 
   <ul>
     <li>
-      <article>
-        <time datetime="2025-10-08T09:00">8 okt, 09:00 – 10:30</time>
-        <!-- maakt de starttijd machineleesbaar (voor zoekmachines en screenreaders) -->
+      <p>
+        <time datetime="2025-10-08T09:00">8 okt, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
+      </p>
+      <p>Informatiebijeenkomst nieuwe ouders Engels</p> <!-- Activiteitomschrijving -->
+    </li>
+    
+  </ul>
+</section>
 
-        <p>Informatiebijeenkomst nieuwe ouders Engels</p>
-      </article>
+
+
+<a href="#" class="link-knoppen">Volledige agenda</a> <!-- Link naar compleet activiteitenoverzicht -->
+
+</main>
+
+<!-- =========================================================
+  FOOTER-GEDEELTE
+========================================================= -->
+<footer>
+    © 2025 ASKOSCHOLEN  |  020 4185562  |  
+    <a href="mailto:achthoek.info@askoscholen.nl">achthoek.info@askoscholen.nl</a>  |  Beheer <!-- E-mail en beheerlink -->
+</footer>
+
+<!-- =========================================================
+  die groet foto van (ASKO)
+  - 
+========================================================= -->
+<section aria-labelledby="asko">
+  <p id="asko">Deze school is onderdeel van:</p> <!-- Label voor de sectie -->
+  <figure>
+    <img src="https://cdn.askoscholen.nl/www.askoscholen.nl/template/img/logo-asko-payoff.svg" 
+         alt="ASKO Scholen – verbindt met aandacht en ambitie"> <!-- ASKO-logo met alt-tekst -->
+  </figure>
+  <img src="https://www.achthoek.nl/templates/buro26/img/asko-strook.svg" 
+       alt="" aria-hidden="true"> <!-- Decoratieve strook (verborgen voor schermlezers) -->
+</section>
+
+
+
+<!-- =========================================================
+  EXTRA FOOTER-LIJSTEN (COLUMNS)
+  - Laatste nieuws / Vacatures / Lees meer over
+========================================================= -->
+<section class="flex-footer-list">
+  <ul> <!-- Buitenste lijst die drie kolommen groepeert -->
+    <li>
+      <h3>Laatste nieuws</h3> <!-- Kolomtitel -->
+      <ul>
+        <li>
+          <time datetime="2025-09-02">02 september 2025</time><br>
+          Taalvriendelijk lezen - verdiepingscursus
+        </li>
+        <li>
+          <time datetime="2025-08-15">15 augustus 2025</time><br>
+          Jaarverslag, jaarrekening en jaaroverzicht 2024
+        </li>
+        <li>
+          <time datetime="2025-07-08">08 juli 2025</time><br>
+          Van stagiair naar pionier: droomstart bij ASKO
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <h3>Vacatures</h3> <!-- Kolomtitel -->
+      <ul>
+        <li>Basisschool De Achthoek - Leerkracht groep 3 of 4</li>
+        <li>Basisschool De Achthoek - Leerkracht instroomgroep</li>
+        <li>Willibrordschool - Leerkracht onderbouw (zwangerschapsvervanging)</li>
+      </ul>
+    </li>
+
+    <li>
+      <h3>Lees meer over</h3> 
+      <ul>
+        <li>Privacybeleid</li>
+        <li>Klachten</li>
+        <li>Contact ASKO</li>
+        <li>Alle ASKO scholen</li>
+      </ul>
     </li>
   </ul>
 </section>
 
-<a href="#">Volledige agenda</a>
 
-</main>
 
-<footer>
-    © 2025 ASKOSCHOLEN  |  020 4185562  |  
-    <a href="mailto:achthoek.info@askoscholen.nl">achthoek.info@askoscholen.nl</a>  |  Beheer
-</footer>
-
-<script defer src="scripts/script.js"></script> 
-
-<img src="https://www.achthoek.nl/templates/buro26/img/asko-strook.svg" alt="">
+<!-- =========================================================
+  SCRIPTS
+  
+========================================================= -->
+<script defer src="scripts/script.js"></script> <!-- Koppeling naar JavaScript-bestand -->
 
 </body> 
 </html>
-

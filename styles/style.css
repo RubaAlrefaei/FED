@@ -1,8 +1,576 @@
 
+/* ======= BASIS INSTELLINGEN ======= */
+*, *::after, *::before { 
+  box-sizing:border-box;   
+} /* Alle elementen gebruiken border-box: padding/border vallen binnen breedte/hoogte */
 
-/****************/
-/* JOUW STYLING */
-/****************/
 
-/* jouw code */
-/* ========== Basis ========== */
+/*********************/ 
+/* CUSTOM PROPERTIES */ 
+/*********************/ 
+/* === LIGHT MODE (standaard) === */
+:root {
+  --color-text: #111;        /* Tekstkleur (donkergrijs/zwart) */
+  --color-bg: #f1f7f7;       /* Achtergrondkleur van de hele pagina */
+  --color-surface: #fff;     /* Kleur voor vlakken zoals header, kaarten */
+  --color-border: #ddd;      /* Randkleur (lichtgrijs) */
+  --color-hover-bg: #b517f6; /* Hoverkleur (fel paars) */
+  --color-hover-text: #fff;  /* Tekstkleur bij hover (wit) */
+}
+
+/* Past de standaard kleuren toe */
+body {
+  background-color: var(--color-bg); /* Achtergrond van de pagina */
+  color: var(--color-text);          /* Tekst op de pagina */
+}
+
+/* === DARK MODE (volgt systeeminstelling) === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #eee;        /* Tekstkleur in dark mode (licht) */
+    --color-bg: #111;          /* Donkere achtergrond voor body */
+    --color-surface: #1a1a1a;  /* Donkere vlakken (header, kaarten) */
+    --color-border: #333;      /* Randkleur in dark mode (donkergrijs) */
+    --color-hover-bg: #cf4bff; /* Hoverkleur in dark mode (lichter paars) */
+    --color-hover-text: #111;  /* Tekstkleur bij hover in dark mode (donker) */
+  }
+}
+
+
+
+
+
+
+/* ======= HEADER STYLING ======= */
+header {
+  display: grid;                             /* grid om layout te maken */
+  grid-template-columns: auto 1fr auto auto; /* logo - menu - knop1 - knop2 */
+  grid-template-areas: "logo nav btn1 btn2"; /* naamgeving van de vakken */
+  align-items: center;                       /* verticaal uitlijnen */
+  gap: 12px;                                 /* ruimte tussen items */
+  padding: 12px 16px;                        /* binnenmarges */
+  background: #fff;                          /* witte achtergrond */
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);     /* subtiele slagschaduw */
+}
+
+header a img {
+  grid-area: logo;   /* logo komt in gridvak 'logo' */
+  height: 40px;      /* vaste hoogte logo */
+  width: auto;       /* breedte schaalt automatisch */
+  display: block;
+}
+
+header nav {
+  grid-area: nav;    /* nav in gridvak */
+  margin-top: 0;
+}
+
+header nav ul {
+  display: flex;     /* horizontale links */
+  gap: 16px;         /* ruimte tussen links */
+  list-style: none;  /* lijst-streepjes uit */
+  margin: 0;
+  padding: 0;
+}
+/* Standaard links */
+header nav a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 0.95rem;
+  padding: 6px 10px;      /* extra ruimte voor de hover-box */
+  border-radius: 0;       /* vierkante vorm */
+  transition: all 0.2s ease;
+}
+
+/* Hover en focus */
+header nav a:hover,
+header nav a:focus-visible {
+  background-color: #6b01b3;   /* felle paarse kleur */
+  color: #fff;                 /* witte tekst voor contrast */
+  outline: 2px solid #9b00ff;  /* extra outline voor duidelijkheid */
+  outline-offset: 2px;         /* klein beetje ruimte rond de box */
+}
+
+
+header > button {
+  width: 44px; height: 44px;           /* ronde knoppen (icon-knop) */
+  display: grid; place-items: center;  /* icon centreren */
+  border: 1px solid #ddd;              /* grijze rand */
+  border-radius: 50%;                  /* cirkelvorm */
+  background: #fff;                    /* witte achtergrond */
+  cursor: pointer;
+  padding: 0;
+}
+
+
+
+
+header > button:first-of-type { grid-area: btn1; margin-right: 8px; } /* Mozilla Developer Network. (2025). grid-area */
+header > button:last-of-type  { grid-area: btn2; }
+
+header > button svg {
+  width: 22px; height: 22px;  /* icon groot */
+  color: #111;
+}
+
+header input[type="search"] {
+  grid-column: 1 / -1;                  /* loopt over hele breedte van grid */
+  margin-top: 12px;
+  width: 100%;
+  height: 44px;                         /* zoekbalk hoogte */
+  border: 1px solid #ddd;
+  border-radius: 999px;                 /* volledig ovaal */
+  background: #fafafa;                  /* lichtgrijs */
+  padding: 0 44px 0 14px;               /* ruimte links en rechts */
+  font-size: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+
+/* focusstijl voor toegankelijkheid */
+header > button:focus-visible,
+header nav a:focus-visible,
+header input[type="search"]:focus-visible {
+  outline: 3px solid #111;   /* donkere rand bij zoekveld */
+  outline-offset: 2px;
+}
+
+
+/* ======= MAIN NAVIGATIEBLOK ======= */
+main nav {
+  background-image: url("../images/achter-foto-kleurblokken.png"); /* achtergrondafbeelding */
+  background-size: cover;      /* beeld vult alles */
+  background-position: center;
+  height: 350px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* links afbeelding, rechts knoppen */
+  gap: 2rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+main nav img {
+  width: 170px;
+  height: auto;
+  display: block;
+  border-radius: 8px;     /* afgeronde hoeken */
+}
+
+main nav ul {
+  list-style: none;       /* geen bullets */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* knoppen onder elkaar */
+  gap: 0.7rem;            /* ruimte tussen knoppen */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Eerste 4 paars knoppen */
+main nav ul li:nth-child(-n+4) a {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #fff;   /* wit */
+  color: #000;              /* zwart */
+  border-radius: 300px;     /* pilvorm */
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* nette overgang */
+}
+
+main nav ul li:nth-child(-n+4) a:hover,
+main nav ul li:nth-child(-n+4) a:focus {
+  background-color: rgb(108, 64, 108); /* paars */
+  color: white;
+}
+
+/* Speciaal voor 5e knop */
+#informatie-momenten {
+  background-color: rgb(108, 64, 108); /* paars */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+}
+
+#informatie-momenten:hover,
+#informatie-momenten:focus {
+  background-color: rgb(68, 45, 111); /* donkerder paars */
+  color: white;
+}
+
+
+/* ======= ALGEMENE KNOPPEN ======= */
+.link-knoppen {
+  padding: 10px 20px;
+  border: 3px solid rgb(2, 2, 84);
+  color: rgb(2, 2, 84);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 9999px;   /* volledig rond */
+  transition: 0.3s;
+  padding: 10px 20px;
+  border: 3px solid rgb(2, 2, 84);
+  color: rgb(2, 2, 84);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 9999px;   /* volledig rond */
+  transition: 0.3s;
+
+  display: inline-block;   /* zorgt dat margin werkt */
+  margin: 1.5rem 0;        /* ruimte boven en onder */
+}
+
+.link-knoppen:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+ul li img {
+  width: 150px;
+  height: auto;
+}
+
+
+/* ======= SECTION ======= */
+section img { width: 100px; } /* standaard sectie-afbeelding */
+section svg { width: 20px; }  /* standaard iconen */
+h2 {
+  background-image: url('../images/balk2.foto.png'); /* kopbalk achtergrond */
+  text-align: center;
+}
+
+
+
+/* ======= RESPONSIVE WEERGAVE KAARTEN ======= */
+.kaart-container {
+  display: flex;
+  flex-direction: column; /* standaard onder elkaar */
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.kaart {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  flex: 1 1 300px; /* basisbreedte 300px, groeit met scherm */
+  max-width: 100%;
+}
+
+.kaart img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.kaart-titel { font-size: 1.2rem; margin: 0.5rem 0; }
+.kaart-beschrijving { font-size: 0.95rem; line-height: 1.4; }
+
+/* Grotere schermen: naast elkaar */
+@media (min-width: 768px) {
+  .kaart-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .kaart {
+    max-width: 300px;
+  }
+}
+
+
+/* ======= TWEEDE PAGINA ELEMENTEN ======= */
+.knoppenTwedeP {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ffa202; /* oranje knop */
+  color: #000;              /* zwarte tekst */
+  border-radius: 300px;     /* pilvorm */
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.knoppenTwedeP:hover { background-color: #a5d7f8; } /* lichtblauw hover */
+
+/* Kaartenpagina 2 */
+.kaarten-2e-pagina ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.kaarten-2e-pagina li {
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* mobiel: kaarten full width */
+@media (max-width: 450px) {
+  .kaarten-2e-pagina li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+/* Sectietitel en datum en tijden activiten */
+section.activiteiten {
+  margin: 2rem 0; /* ruimte boven en onder de sectie */
+}
+section.activiteiten h2 {
+  font-size: 2rem; /* grote hoofdtitel */
+  margin: 0 0 .5rem; /* kleine ruimte onder titel */
+}
+section.activiteiten h3 {
+  font-size: 1.5rem; /* iets kleiner voor maanden */
+  font-weight: 600; /* wat vetter voor nadruk */
+  color: #333; /* donkergrijs, beter leesbaar */
+  margin: 1.5rem 0 .75rem; /* ruimte boven en onder maandtitels */
+}
+
+/* Lijsten als stapel */
+section.activiteiten ul {
+  list-style: none; /* bullets verwijderen */
+  margin: 0; /* geen extra marge */
+  padding: 0; /* geen extra padding */
+  display: grid; /* grid voor nette verticale stapel */
+  gap: 1rem; /* ruimte tussen de items */
+}
+
+/* Kaartjes */
+section.activiteiten li {
+  display: flex; /* maakt kolommen (links/rechts) */
+  background: #eee; /* lichtgrijze achtergrond */
+  border-radius: 16px; /* ronde hoeken */
+  box-shadow: 0 3px 6px rgba(0,0,0,.12); /* subtiele schaduw */
+  overflow: hidden; /* zodat child elementen binnen ronde hoeken blijven */
+}
+section.activiteiten li > p {
+  margin: 0; /* standaard marge weghalen */
+  display: flex; /* maakt tekstblok flexcontainer */
+  align-items: center; /* tekst/inhoud verticaal centreren */
+}
+
+/* Linkerkolom: datumbalk */
+section.activiteiten li > p:first-of-type {
+  background: #e87912; /* oranje achtergrond */
+  color: #fff; /* witte tekst voor contrast */
+  flex: 0 0 110px; /* vaste breedte voor datum */
+  padding: .9rem .8rem; /* binnenruimte */
+  display: grid; /* grid voor makkelijke centrering */
+  place-items: center; /* horizontaal & verticaal centreren */
+  text-align: center; /* tekst gecentreerd */
+  font-weight: 700; /* vetgedrukte datum */
+}
+section.activiteiten li > p:first-of-type time {
+  display: block; /* maakt <time> eigen blok */
+  line-height: 1.2; /* compacte regelafstand */
+}
+
+/* Rechterkolom: activiteit */
+section.activiteiten li > p:last-of-type {
+  padding: 1rem 1.25rem; /* ruimte binnen de kaart */
+  font-size: 1.1rem; /* iets grotere tekst */
+  color: #111; /* donkergrijs bijna zwart */
+  font-weight: 600; /* duidelijk leesbaar maar minder vet dan datum */
+}
+
+/* Responsief gedrag */
+@media (min-width: 768px) {
+  section.activiteiten li > p:last-of-type { 
+    padding: 1.25rem 1.5rem; /* meer ruimte op grotere schermen */
+  }
+  section.activiteiten li > p:first-of-type { 
+    flex: 0 0 120px; /* iets bredere linkerkolom */
+  }
+}
+
+
+
+
+
+/* ======= tekst onder FOOTER LIST ======= */
+.flex-footer-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+}
+
+.flex-footer-list li {
+  flex: 1 1 300px;
+  box-sizing: border-box;
+  min-width: 250px;
+  font-size: 110%;
+}
+
+
+/* ======= FOOTER ======= */
+footer {
+  background-color: hsl(40, 7%, 92%); /* donkerpaars */
+  color: #000000;           /* witte tekst */
+  font-size: 80%;
+  padding: 1.5rem;          /* wat binnenruimte voor luchtigheid */
+  text-align: center;       /* tekst netjes in het midden */
+  
+}
+
+
+
+/* ====== foto ASKO schoelen die onder fotter moet ====== */
+section[aria-labelledby="asko"] {
+  text-align: center;
+  margin: 4rem 0;          /* extra ruimte boven/onder */
+}
+
+section[aria-labelledby="asko"] p {
+  font-size: 1.5rem;       /* grotere tekst */
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+section[aria-labelledby="asko"] figure {
+  margin: 0 auto 2rem auto; 
+}
+
+section[aria-labelledby="asko"] img {
+  max-width: 350px;        /* foto groter */
+  width: 100%;
+  height: auto;
+}
+
+section[aria-labelledby="asko"] img[aria-hidden="true"] {
+  margin-top: 2rem;        /* meer ruimte boven de strook */
+  max-width: 500px;        /* strook ook wat groter */
+}
+
+
+
+
+
+
+
+
+/* ============ BASIS-VEILIGHEID ============ */
+html, body{ margin:0; width:100%; }
+*, *::before, *::after{ box-sizing:border-box; }
+img, svg, video{ max-width:100%; height:auto; }
+body{ overflow-x:hidden; } /* vangnet tegen horizontale scroll */
+
+/* Centreer hoofdblokken + zijkant-padding */
+main, footer, section[aria-labelledby="asko"], .flex-footer-list{
+  max-width: 1150px;         /* kies 720–960px naar smaak */
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* ============ HEADER FIX ============ */
+/* het logo zit in <a>, dus dat element krijgt de grid-area */
+header{
+  display:grid;
+  grid-template-columns: 1fr auto auto;   /* mobiel: logo | btn1 | btn2 */
+  grid-template-areas: "logo btn1 btn2";
+  align-items:center;
+  gap:12px;
+  padding:12px 16px;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.05);
+}
+header > a{ grid-area: logo; }
+header > a img{ height:40px; width:auto; display:block; }
+header > button:first-of-type{ grid-area: btn1; }
+header > button:last-of-type { grid-area: btn2; }
+
+/* Nav standaard verbergen op small screens */
+header nav{ display:none; }
+
+/* Zoekveld onder de rij, full width */
+header input[type="search"]{
+  grid-column:1 / -1;
+  margin-top:12px;
+  width:100%; height:44px;
+  border:1px solid #ddd; border-radius:999px;
+  background:#fafafa;
+  padding:0 44px 0 14px;
+  font-size:1rem;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);
+}
+
+/* Desktop/tablet: nav tonen en header uitbreiden */
+@media (min-width: 768px){
+  header{
+    grid-template-columns:auto 1fr auto auto; /* logo | nav | btn1 | btn2 */
+    grid-template-areas:"logo nav btn1 btn2";
+  }
+  header nav{ display:block; }
+  header nav ul{
+    display:flex; gap:16px; list-style:none; margin:0; padding:0;
+  }
+  header nav a{
+    text-decoration:none; color:#111; font-size:.95rem;
+  }
+}
+
+/* ============ MAIN -NAV FIX ============ */
+/* voorkom krappe layout op klein scherm: stapelen i.p.v. 2 kolommen */
+@media (max-width: 560px){
+  main nav{
+    grid-template-columns: 1fr !important; /* force single column */
+    height:auto;
+    gap:1rem;
+    overflow:hidden; /* extra zekerheid */
+  }
+}
+
+/* ============ H2 ACHTERGROND ============ */
+h2{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ============ KNOPPEN DUPLICATE CLEANUP ============ */
+/*  */
+.link-knoppen{
+  display:inline-block;
+  margin:1.5rem auto 1.5rem 0; /* lucht erboven/onder; links uitgelijnd */
+  padding:10px 20px;
+  border:3px solid rgb(2,2,84);
+  color:rgb(2,2,84);
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:9999px;
+  transition:.3s;
+}
+.link-knoppen:hover{ background-color:darkblue; color:#fff; }
+
+
