@@ -1,17 +1,8 @@
 <!DOCTYPE html> 
-<!-- =========================================================
-  DOCUMENT: Basissite De Achthoek
-  DOEL: Semantische structuur van de homepage
-  LET OP: Op verzoek van de gebruiker – alleen commentaar toegevoegd, geen code aangepast.
-========================================================= -->
+
 <html lang="nl"> 
 <head> 
-    <!-- ==========================
-      HEAD: metadata, titel, assets
-      - charset en viewport voor correcte weergave
-      - auteur voor broninformatie
-      - styles en favicon geladen
-    =========================== -->
+    
     <meta charset="UTF-8"> <!-- Tekencodering UTF-8 voor correcte karakters -->
     <meta name="author" content="Ruba"> <!-- Auteur van de pagina -->
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Responsive viewport-instellingen -->
@@ -26,14 +17,13 @@
   HEADER-GEDEELTE
   Bevat: logo (link naar home), hoofdnavigatie, toegangs-/menu-knoppen, zoekveld
 ========================================================= -->
- 
-<header>
+ <header> 
   <a href="index.html"> <!-- Klikbaar logo terug naar de homepage -->
-  <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool"> <!-- Schoollogo -->
-</a>
- <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
+    <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool"> <!-- Schoollogo -->
+  </a>
+  <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
 
-  <nav aria-label="Hoofdmenu"> <!-- Navigatiegebied met aria-label voor schermlezers -->
+  <nav id="hoofdmenu" aria-label="Hoofdmenu"> <!-- Navigatiegebied met aria-label voor schermlezers -->
     <ul> <!-- Lijst met primaire navigatielinks -->
       <li><a href="/aanmelden">De Achthoek</a></li> <!-- Link naar info over de school -->
       <li><a href="/contact">Ons onderwijs</a></li> <!-- Link naar onderwijsvisie/aanbod -->
@@ -43,62 +33,86 @@
     </ul>
   </nav>
 
-  <button aria-label="Inloggen"> <!-- Knop met toegankelijkheidslabel -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- SVG-icoon in knop -->
-      <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M12 7a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 0 1 1-1" clip-rule="evenodd"/>
-    </svg> <!-- Plus-teken (bijv. voor aanmelden/inloggen) -->
+  <button aria-label="mijn account icoon"> <!-- Knop met toegankelijkheidslabel -->
+    <svg id="Layer_1_1_" style="enable-background:new 0 0 16 16;" version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M8,0C5.239,0,3,2.239,3,5v1H2v10h12V6h-1V5C13,2.239,10.761,0,8,0z M9,11.723V14H7v-2.277C6.405,11.376,6,10.738,6,10  c0-1.105,0.895-2,2-2s2,0.895,2,2C10,10.738,9.595,11.376,9,11.723z M12,6H4V5c0-2.206,1.794-4,4-4s4,1.794,4,4V6z"/></svg>
   </button>
 
-  <button aria-label="Menu openen"> <!-- Knop met toegankelijkheidslabel -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- SVG-icoon in knop -->
-      <path fill="currentColor" d="M22 21h1v1h-1v1H2v-1H1v-1h1v-1h20zm1-6v1h-1v1H2v-1H1v-1h1v-1h20v1zm-1-7h1v1h-1v1H2V9H1V8h1V7h20zm1-6v1h-1v1H2V3H1V2h1V1h20v1z"/>
-    </svg> <!-- Hamburger-achtig menu-icoon -->
+  <button aria-label="zoek icoon"> <!-- Knop met toegankelijkheidslabel -->
+    <svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/><path d="M0 0h48v48h-48z" fill="none"/></svg> <!-- SVG-icoon in knop -->
   </button>
 
-  <input type="search"> <!-- Zoekveld (zonder label/placeholder – kan later aangevuld worden) -->
+  <!-- ▼▼ AANPASSING: hamburgerknop met koppeling naar #hoofdmenu ▼▼ -->
+  <!-- ▼ menu-knop -->
+<button id="menu-btn" type="button" aria-label="Menu openen" aria-controls="hoofdmenu" aria-expanded="false">
+  <!-- Eenvoudig hamburger-icoon (class toegevoegd) -->
+  <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+  </svg>
 
+  <!-- X-icoon (sluit-menu) -->
+  <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <polygon fill="currentColor" fill-rule="evenodd"
+      points="8 9.414 3.707 13.707 2.293 12.293 6.586 8 
+              2.293 3.707 3.707 2.293 8 6.586 
+              12.293 2.293 13.707 3.707 
+              9.414 8 13.707 12.293 12.293 13.707 8 9.414"/>
+  </svg>
+</button>
+<!-- ▲ einde knop -->
 
+<!-- ▲ einde knop -->
+
+  <!-- ▲▲ EINDE AANPASSING ▲▲ -->
+
+  <input type="search" aria-label="Zoeken"> <!-- Zoekveld  -->
 </header>
 
 
 
-<!-- =========================================================
-  MAIN-CONTENT
-  Bevat: secundaire navigatie, hero-titel, intro-artikel, CTA, social kaart,
-  nieuwskaarten, nieuwsbrief-popup, activiteiten, agenda-link
-========================================================= -->
 <main>
+  <nav>
+    <!-- Ik gebruik hier een div om de twee foto's samen te groeperen aan de linkerkant van de navigatie -->
+    <div class="nav-image-side">
+      <!-- Foto van spelende kinderen -->
+      <img
+        class="kids-photo"
+        src="https://www.achthoek.nl/cache/images/15_R1920x480Q80S358477.jpg"
+        alt="Kinderen die blij spelen">
+      <!-- Kleurige overlay boven de foto -->
+      <img
+        class="overlay-photo"
+        src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/visual-overlay.png"
+        alt="Kleuren overlay">
+    </div>
 
-<!-- --------------------
-  SECUNDAIRE NAVIGATIE / ZIJBALK
---------------------- -->
-<nav>  
-    <!-- Illustratieve afbeelding bij de navigatie -->
-    <img id="kinder-illustra-3.jgp" src="images/kinder-illustr-3.jpg" alt="Beschrijving van foto"> <!-- Afbeelding (id en bestandsnaam blijven ongewijzigd) -->
+    <!-- Navigatie menu met links naar verschillende pagina’s -->
+    <ul>
+      <li><a href="/aanmelden">Aanmelden</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/jaarkalender">Jaarkalender</a></li>
+      <li><a href="/onderwijs">Ontwikkelingsgericht Onderwijs</a></li>
+      <li>
+        <!-- Link naar informatiemomenten en meetings -->
+        <a id="informatie-momenten" href="informatiemomenten.html">
+          Informatiemomenten en meetings
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-  <!-- Snelle links naar belangrijke pagina's -->
-  <ul>
-    <li><a href="/aanmelden">Aanmelden</a></li> <!-- CTA voor inschrijving -->
-    <li><a href="/contact">Contact</a></li> <!-- Contactinformatie -->
-    <li><a href="/jaarkalender">Jaarkalender</a></li> <!-- Overzicht schooldata -->
-    <li><a href="/onderwijs">Ontwikkelingsgericht Onderwijs</a></li> <!-- Link naar onderwijsconcept -->
-    <li><a id="informatie-momenten" href="informatiemomenten.html">Informatiemomenten en meetings</a></li> <!-- Info- en kennismakingsmomenten -->
-  </ul>
-</nav>
 
-<!-- --------------------
-  HOOFDKOP / HERO-TITEL
---------------------- -->
-<h1>Basisschool De Achthoek</h1> <!-- Primaire paginatitel --> 
 
-<!-- --------------------
-  INTRO-ARTIKEL
---------------------- -->
+
+
+
+
+
 <article>
+  <h1>Basisschool De Achthoek</h1> <!-- Primaire paginatitel -->
 <p>
     <strong>
              Een bruisende school voor uitdagend leren
-    </strong> <!-- Slogan/boodschap in het oog springend -->
+    </strong> 
 </p>
     
 <p>
@@ -107,7 +121,8 @@
     Dit doen we vanuit de visie van <a href="http://ontwikkelingsgericht.nl">Ontwikkelings Gericht Onderwijs</a>. 
     Leerlingen krijgen de ruimte om hun persoonlijkheid te ontwikkelen en hun talenten te benutten. 
     Samen met ouders geven we hen een stevige basis.
-</p> <!-- Introductietekst over visie en aanpak -->
+</p> 
+
 <p>
     De Achthoek is gevestigd in het Oostelijk Havengebied in Amsterdam. 
     Op deze website vind je onder andere informatie over onze visie en onderwijs, nieuws uit de groepen en van de school en praktische informatie. Kort en krachtig, want een uitgebreide toelichting staat in de Schoolgids. 
@@ -117,43 +132,192 @@
 
 <a href="#" class="link-knoppen">Lees meer over onze school</a> <!-- Primaire call-to-action -->
 
-<!-- --------------------
-  SOCIAL MEDIA KAART
---------------------- -->
-<h2>
+
+  <h2>
     Social media
-</h2> 
+  </h2>
+<!-- Social media kaarten met dezelfde indeling als 'Laatste nieuws' -->
+<section class="social-kaart-container">
 
-<section class="kaart"> <!-- Kaartcomponent met social bericht -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
-    <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
-  </svg> <!-- Pictogram (bijv. platformlogo) -->
+  <h6>dit word niet zichtbaar</h6>
 
-  <strong>De Achthoek</strong> <!-- Afzender/naam account -->
-  <p>14-9-202</p> <!-- Datumtekst (ongewijzigd overgenomen) -->
-  <img src="images/media.foto.1.png" alt="Foto van De Achthoek"> <!-- Afbeelding bij het bericht -->
+  <!-- Eerste kaart -->
+  <section class="kaart-social">
+    <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo-social.png" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
+    </svg>
 
-  <p>
-    De groepen 1-2 gingen naar Sprookjes wonderland! 
-    Het was een betoverend mooie dag! 
-  </p> <!-- Berichtinhoud -->
+    <h3>De Achthoek</h3>
+    <p>14-9-202</p>
 
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
-    <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
-  </svg> <!-- Icoon (bijv. 'delen' of 'meer') -->
+    <img src="images/media.foto.1.png" alt="Foto van kinderen van De Achthoek">
+
+    <p>
+      De leerlingenraad 2024-2025 heeft afgelopen vrijdag de laatste vergadering gehad. We hebben onze successen gevierd en bedacht waar de volgende leerlingenraad mee verder kan. Ook hebben alle kinderen een certificaat ontvangen voor deelname 🥳 Nu op naar de verkiezingen van de nieuwe leerlingenraad 2025-2026! Deze zullen na de herfstvakantie van start gaan
+    </p>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
+    </svg>
+
+    <div class="kaart-social-footer">
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20">
+          <path d="M22.229,4.514c-2.547,0-4.85,1.334-5.919,3.414c-1.07-2.079-3.401-3.414-5.948-3.414
+                   c-3.981,0-9.319,3.209-6.888,11.963C6.251,25.034,16.31,30.065,16.31,30.063c0,0.002,10.044-5.029,12.821-13.586
+                   C31.562,7.723,26.209,4.514,22.229,4.514z" fill="#515151"/>
+        </svg>
+        <span>6</span>
+      </span>
+
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="20" height="20">
+          <path fill="#546E7A"
+            d="M112,0H16C7.164,0,0,7.164,0,16v64c0,8.836,7.164,16,16,16h24l32,32V96h40c8.836,0,16-7.164,16-16V16
+               C128,7.164,120.836,0,112,0z"/>
+          <path fill="#B0BEC5" d="M24,32h80v-8H24V32z"/>
+          <path fill="#B0BEC5" d="M24,48h80v-8H24V48z"/>
+          <path fill="#B0BEC5" d="M24,64h48v-8H24V64z"/>
+        </svg>
+        <span>0</span>
+      </span>
+    </div>
+  </section>
+
+  <!-- Tweede kaart -->
+  <section class="kaart-social">
+    <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo-social.png" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
+    </svg>
+
+    <h3>De Achthoek</h3>
+    <p>14-9-202</p>
+
+    <img src="images/kinderen-spelen3.png" alt="Foto van kinderen van De Achthoek">
+
+    <p>
+      Door kunst te beleven, te onderzoeken en zelf te maken, ontdekken kinderen hun eigen creatieve kracht. Dat is waar kunsteducatie om draait — leren denken, voelen en verbeelden. 💭🎭🖌️ 🖼️ “In elke leerling schuilt een kunstenaar; kunstonderwijs helpt die naar buiten te brengen.
+    </p>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
+    </svg>
+
+    <div class="kaart-social-footer">
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20">
+          <path d="M22.229,4.514c-2.547,0-4.85,1.334-5.919,3.414c-1.07-2.079-3.401-3.414-5.948-3.414
+                   c-3.981,0-9.319,3.209-6.888,11.963C6.251,25.034,16.31,30.065,16.31,30.063c0,0.002,10.044-5.029,12.821-13.586
+                   C31.562,7.723,26.209,4.514,22.229,4.514z" fill="#515151"/>
+        </svg>
+        <span>6</span>
+      </span>
+
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="20" height="20">
+          <path fill="#546E7A"
+            d="M112,0H16C7.164,0,0,7.164,0,16v64c0,8.836,7.164,16,16,16h24l32,32V96h40c8.836,0,16-7.164,16-16V16
+               C128,7.164,120.836,0,112,0z"/>
+          <path fill="#B0BEC5" d="M24,32h80v-8H24V32z"/>
+          <path fill="#B0BEC5" d="M24,48h80v-8H24V48z"/>
+          <path fill="#B0BEC5" d="M24,64h48v-8H24V64z"/>
+        </svg>
+        <span>0</span>
+      </span>
+    </div>
+  </section>
+
+  <section class="kaart-social">
+    <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo-social.png" alt="">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+      <path fill="currentColor" d="M8 1C4.13 1 1 4.15 1 8.04c0 3.51 2.56 6.43 5.91 6.96v-4.92H5.13V8.04h1.78V6.49c0-1.77 1.05-2.74 2.64-2.74c.77 0 1.57.14 1.57.14v1.73h-.88c-.87 0-1.14.54-1.14 1.1v1.32h1.94l-.31 2.04H9.1V15c3.35-.53 5.91-3.44 5.91-6.96c0-3.89-3.13-7.04-7-7.04Z"/>
+    </svg>
+
+    <h3>De Achthoek</h3>
+    <p>14-9-202</p>
+
+    <img src="images/kinderen-spelen1.png" alt="Foto van kinderen van De Achthoek">
+
+    <p>
+      Café ‘De Drukke Duif’ was vandaag in groep 8B geopend voor het grotere publiek na weken testen! In dit café kunnen Amsterdamse spellen gespeeld worden onder het genot van heerlijke mocktails en hapjes! Alle rollen worden serieus vervuld. Er waren goede gesprekken en kritische vragen. Dat is weer fijn voor de evaluatie! Op naar opening nummer 2
+    </p>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M58.79 439.13A16 16 0 0 1 48 424c0-73.1 14.68-131.56 43.65-173.77c35-51 90.21-78.46 164.35-81.87V88a16 16 0 0 1 27.05-11.57l176 168a16 16 0 0 1 0 23.14l-176 168A16 16 0 0 1 256 424v-79.77c-45 1.36-79 8.65-106.07 22.64c-29.25 15.12-50.46 37.71-73.32 67a16 16 0 0 1-17.82 5.28Z"/>
+    </svg>
+
+    <div class="kaart-social-footer">
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20">
+          <path d="M22.229,4.514c-2.547,0-4.85,1.334-5.919,3.414c-1.07-2.079-3.401-3.414-5.948-3.414
+                   c-3.981,0-9.319,3.209-6.888,11.963C6.251,25.034,16.31,30.065,16.31,30.063c0,0.002,10.044-5.029,12.821-13.586
+                   C31.562,7.723,26.209,4.514,22.229,4.514z" fill="#515151"/>
+        </svg>
+        <span>6</span>
+      </span>
+
+      <span class="item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="20" height="20">
+          <path fill="#546E7A"
+            d="M112,0H16C7.164,0,0,7.164,0,16v64c0,8.836,7.164,16,16,16h24l32,32V96h40c8.836,0,16-7.164,16-16V16
+               C128,7.164,120.836,0,112,0z"/>
+          <path fill="#B0BEC5" d="M24,32h80v-8H24V32z"/>
+          <path fill="#B0BEC5" d="M24,48h80v-8H24V48z"/>
+          <path fill="#B0BEC5" d="M24,64h48v-8H24V64z"/>
+        </svg>
+        <span>0</span>
+      </span>
+    </div>
+  </section>
+  
 </section>
+
+
+
+
+
+
 
 <a href="#" class="link-knoppen">Meer berichten</a> <!-- Link naar overzicht social berichten -->
 
-<!-- --------------------
-  LAATSTE NIEUWS (KAARTEN)
---------------------- -->
+
 <h2> 
     Laatste nieuws
 </h2> 
 
 <ul class="kaart-container"> <!-- Container voor drie nieuwskaarten + aanmeldknop -->
 
+  <li class="kaart"> <!-- Nieuwskaart 1 -->
+    <img src="images/kunst-spelen1.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3> <!-- Kaarttitel -->
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal - Studiedag Partou<br>
+      Meelopen naar de klas - Ouder- en kindteam<br>
+      Vroegschools aanbod
+    </p> <!-- Korte inhoud/teasers -->
+  </li>
+
+  <li class="kaart"> <!-- Nieuwskaart 1 -->
+    <img src="images/kunst-spelen2.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3> <!-- Kaarttitel -->
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal - Studiedag Partou<br>
+      Meelopen naar de klas - Ouder- en kindteam<br>
+      Vroegschools aanbod
+    </p> <!-- Korte inhoud/teasers -->
+  </li>
+
+  <li class="kaart"> <!-- Nieuwskaart 1 -->
+    <img src="images/leer.meer1.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
+    <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3> <!-- Kaarttitel -->
+    <p class="kaart-beschrijving">
+      Agenda - Wat gebeurt er zoal - Studiedag Partou<br>
+      Meelopen naar de klas - Ouder- en kindteam<br>
+      Vroegschools aanbod
+    </p> <!-- Korte inhoud/teasers -->
+  </li>
   <li class="kaart"> <!-- Nieuwskaart 1 -->
     <img src="images/leer.meer1.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
     <h3 class="kaart-titel">Nieuwsbrief start - 26 augustus 2025</h3> <!-- Kaarttitel -->
@@ -238,6 +402,16 @@
     </li>
   </ul>
 
+  <h3>November 2025</h3> 
+  <ul>
+    <li>
+      <p>
+        <time datetime="2025-11-24T09:00">24 nov, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
+      </p>
+      <p>Informatiebijeenkomst nieuwe ouders</p> <!-- Activiteitomschrijving -->
+    </li>
+  </ul>
+
   <h3>Oktober 2025</h3> 
   <ul>
     <li>
@@ -269,14 +443,20 @@
   - 
 ========================================================= -->
 <section aria-labelledby="asko">
-  <p id="asko">Deze school is onderdeel van:</p> <!-- Label voor de sectie -->
+  <h5 id="asko">Deze school is onderdeel van:</h5> <!-- Label voor de sectie -->
+  
   <figure>
-    <img src="https://cdn.askoscholen.nl/www.askoscholen.nl/template/img/logo-asko-payoff.svg" 
-         alt="ASKO Scholen – verbindt met aandacht en ambitie"> <!-- ASKO-logo met alt-tekst -->
+    <img 
+      src="https://cdn.askoscholen.nl/www.askoscholen.nl/template/img/logo-asko-payoff.svg"
+      alt="ASKO Scholen – verbindt met aandacht en ambitie">
   </figure>
-  <img src="https://www.achthoek.nl/templates/buro26/img/asko-strook.svg" 
-       alt="" aria-hidden="true"> <!-- Decoratieve strook (verborgen voor schermlezers) -->
+  
+  <img 
+    src="https://www.achthoek.nl/templates/buro26/img/asko-strook.svg"
+    alt=""
+    aria-hidden="true"> <!-- Decoratieve strook (verborgen voor schermlezers) -->
 </section>
+
 
 
 

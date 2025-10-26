@@ -9,245 +9,299 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 
+<body class="pagina-vacature">
+
+  <!-- ===== HEADER ===== -->
+  <header> 
+    <a href="index.html">
+      <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool">
+    </a>
+
+    <nav id="hoofdmenu" aria-label="Hoofdmenu">
+      <ul>
+        <li><a href="/aanmelden">De Achthoek</a></li>
+        <li><a href="/contact">Ons onderwijs</a></li>
+        <li><a href="/aanmelden">Nieuwe ouders</a></li>
+        <li><a href="/contact">Nieuws</a></li>
+        <li><a href="/jaarkalender">Jaarkalender</a></li>
+      </ul>
+    </nav>
+
+    <button aria-label="mijn account icoon">
+      <svg id="Layer_1_1_" style="enable-background:new 0 0 16 16;" version="1.1" viewBox="0 0 16 16" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M8,0C5.239,0,3,2.239,3,5v1H2v10h12V6h-1V5C13,2.239,10.761,0,8,0z M9,11.723V14H7v-2.277C6.405,11.376,6,10.738,6,10  c0-1.105,0.895-2,2-2s2,0.895,2,2C10,10.738,9.595,11.376,9,11.723z M12,6H4V5c0-2.206,1.794-4,4-4s4,1.794,4,4V6z"/></svg>
+    </button>
+
+    <button aria-label="zoek icoon">
+      <svg height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="M31 28h-1.59l-.55-.55c1.96-2.27 3.14-5.22 3.14-8.45 0-7.18-5.82-13-13-13s-13 5.82-13 13 5.82 13 13 13c3.23 0 6.18-1.18 8.45-3.13l.55.55v1.58l10 9.98 2.98-2.98-9.98-10zm-12 0c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9z"/><path d="M0 0h48v48h-48z" fill="none"/></svg>
+    </button>
+
+    <button id="menu-btn" type="button" aria-label="Menu openen" aria-controls="hoofdmenu" aria-expanded="false">
+      <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+        <polygon fill="currentColor" fill-rule="evenodd"
+          points="8 9.414 3.707 13.707 2.293 12.293 6.586 8 
+                  2.293 3.707 3.707 2.293 8 6.586 
+                  12.293 2.293 13.707 3.707 
+                  9.414 8 13.707 12.293 12.293 13.707 8 9.414"/>
+      </svg>
+    </button>
+
+    <input type="search" aria-label="Zoekbalk">
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="inhoud">
+    
+    <!-- Sectie: Vacature -->
+    <section class="eerste-kaarten-2pagina">
+      
 
 
-
-
-
-<!-- tweede pagina HTML -->
-
- 
-
-
-
-<!-- =========================
-  HEADER: logo, menu, knoppen, zoek
-========================== -->
-<header> <!-- Begin van de header -->
- <a href="index.html"> <!-- Link terug naar de homepage -->
-  <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo.svg" alt="De Achthoek basisschool"> <!-- Schoollogo met alt-tekst -->
-</a> <!-- Einde klikbaar logo -->
- <!-- Logo, belangrijk voor herkenning en toegankelijkheid -->
-
-  <nav aria-label="Hoofdmenu"> <!-- Hoofdnavigatie voor schermlezers benoemd -->
-    <ul>  <!-- Lijst met menu-items -->
-      <li><a href="/aanmelden">De Achthoek</a></li>  <!-- Link naar schoolinfo -->
-      <li><a href="/contact">Ons onderwijs</a></li>  <!-- Link naar onderwijs -->
-      <li><a href="/aanmelden">Nieuwe ouders</a></li>  <!-- Link voor nieuwe ouders -->
-      <li><a href="/contact">Nieuws</a></li>  <!-- Link naar nieuws -->
-      <li><a href="/jaarkalender">Jaarkalender</a></li>  <!-- Link naar kalender -->
-    </ul> <!-- Einde lijst -->
-  </nav> <!-- Einde navigatie -->
-
-  <button aria-label="Inloggen"> <!-- Knop: inloggen (toegankelijk label) -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- Icoon in de knop -->
-      <path fill="currentColor" fill-rule="evenodd" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2s10 4.477 10 10M12 7a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 0 1 1-1" clip-rule="evenodd"/>
-    </svg> <!-- Einde icoon -->
-  </button> <!-- Einde knop inloggen -->
-
-  <button aria-label="Menu openen"> <!-- Knop: mobiel menu openen -->
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"> <!-- Icoon voor menu -->
-      <path fill="currentColor" d="M22 21h1v1h-1v1H2v-1H1v-1h1v-1h20zm1-6v1h-1v1H2v-1H1v-1h1v-1h20v1zm-1-7h1v1h-1v1H2V9H1V8h1V7h20zm1-6v1h-1v1H2V3H1V2h1V1h20v1z"/>
-    </svg> <!-- Einde icoon -->
-  </button> <!-- Einde knop menu -->
-
-  <input type="search"> <!-- Zoekveld (zonder label/placeholder) -->
-
-
-</header> <!-- Einde van de header -->
-
-<!-- =========================
-  MAIN: inhoud pagina (vacature, schoolinfo, contact, CTA)
-========================== -->
-<main> <!-- Begin hoofdinhoud -->
-
-    <!-- -------------------------
-      SECTIE: Vacaturekaarten (lijst met 2 items)
-    -------------------------- -->
-    <section class="kaarten-2e-pagina"> <!-- Sectie met kaartenlayout -->
-
-        <ul>  <!-- Lijst met vacature-inhoud en specificaties -->
-    <li> <!-- Kaart 1: vacature omschrijving -->
-
-    <h3>
-        Leerkracht groep 3 of 4
-    </h3> <!-- Titel vacature -->
-    <strong>Delen</strong> <!-- Label 'Delen' -->
-    <p>Je vindt het geweldig om 25 leerlingen in groep 3 of 4 te begeleiden in hun ontwikkeling.</p> <!-- Korte intro -->
-    <p> 
-        <strong>En je wilt:</strong> <!-- Subkopje wensen -->
-• Een inspirerende leeromgeving creëren: Op onze basisschool krijg je de kans om een inspirerende leeromgeving te creëren waarin je jouw talenten, kwaliteiten en passie voor onderwijs kunt delen.
-• Je ontwikkelen: We investeren in jouw professionele groei en ontwikkeling.
-• Samenwerken met collega’s: Samen met je collega’s bereid je de thema’s en lessen voor. We hechten veel waarde aan teamwork en open communicatie.</p> <!-- Lijst van punten in tekst -->
-
-<p>
-    <strong>Wat ga je doen:</strong> <!-- Subkopje taken -->
-Je gaat een zwangerschap vervangen in groep 3 of 4.
-</p> <!-- Takenomschrijving -->
-<p>
-    <strong>Wat vragen wij:</strong> <!-- Subkopje eisen -->
-• Een afgeronde Pabo-opleiding
-• Ervaring of affiniteit met OGO en/of thematisch werken
-• Open staan voor verdere ontwikkeling en samenwerking
-</p> <!-- Eisen in tekst -->
-<p>
-    <strong>Wat bieden wij:</strong> <!-- Subkopje aanbod -->
-• Gymlessen worden verzorgd door de vakleerkracht bewegingsonderwijs.
-• Een fijn en divers team
-</p> <!-- Aanbod in tekst -->
-
-<a href="#" class="knoppenTwedeP">Direct solliciteren</a> <!-- CTA-knop solliciteren -->
-
-
-</li> <!-- Einde kaart 1 -->
-
-<li> <!-- Kaart 2: specificaties -->
-
-<h3>Specificaties</h3> <!-- Titel specificaties -->
-
-<h5>Functie</h5> <!-- Subkopje -->
-<strong>Leerkracht groep 3 of 4</strong> <!-- Functienaam -->
-
-Periode <!-- Label periode (losse tekst) -->
-<strong>per 1 november (zwangerschapsvervanging)</strong> <!-- Periode ingevuld -->
-
-<h5>Werktijdfactor (fte)</h5> <!-- Subkopje fte -->
-<strong>0,4 - 0,8</strong> <!-- Omvang dienstverband -->
-
-<h5>Salaris</h5> <!-- Subkopje salaris -->
-<strong>LB</strong> <!-- Salarisschaal -->
-</li> <!-- Einde kaart 2 -->
-
-</ul> <!-- Einde lijst -->
-
-</section> <!-- Einde sectie vacaturekaarten -->
-
-
-<!-- -------------------------
-  SECTIE: Schoolinformatie + video
--------------------------- -->
-<section> <!-- Algemene sectie met tekst en video -->
-<h3>Basisschool De Achthoek</h3> <!-- Sectietitel -->
-  <p>
-    OGO Op De Achthoek is leren leuk. Er is een rijke, krachtige leeromgeving waarin kinderen worden ondersteund en uitgedaagd te ontdekken, te leren en te doen. Binnen de veilige leeromgeving van de school bereiden wij hen voor op hun toekomst als wereldburgers. Dit doen we vanuit de visie van Ontwikkelings Gericht Onderwijs (OGO). Leerlingen krijgen de ruimte om hun persoonlijkheid te ontwikkelen en hun talenten te benutten. Samen met ouders geven we hen een stevige basis. Het grote enthousiasme waarmee het team zich inzet om goed en uitdagend onderwijs te bieden is één van de...
-    <a href="#">Alles over deze school</a> <!-- Link naar detailpagina school -->
-  </p> <!-- Paragraaf schoolintro -->
-
-
- <!-- duidelijke title attribuut, 
-  zodat screenreaders goed kunnen aangeven waar de video over gaat --><iframe
-  src="https://www.youtube.com/embed/BWp9KoXzIbM"
-  title="Video over Basisschool De Achthoek"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-  style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; border: none; display: block; margin-top: 10px;">
-</iframe>
-<!-- Ingesloten YouTube-video -->
-<!-- Beschrijvende titel voor toegankelijkheid -->
-<!-- Toegestane functies -->
-<!-- Volledig scherm toestaan -->
-<!-- Responsieve styling -->
-<!-- Einde iframe -->
-
-
-<!-- bron van die code iframe (OpenAI, 2025) --> <!-- Bronvermelding behouden -->
-
-
-</section> <!-- Einde sectie schoolinfo -->
-
-
-
-
-<!-- -------------------------
-  SECTIE: Locatie + Contact + Contactpersoon 
--------------------------- -->
-<section class="kaarten-2e-pagina"> <!-- Sectie met kaart/kolomopmaak -->
-
-<ul> <!-- Lijst met drie informatieblokken -->
-    <li> <!-- Blok 1: locatie -->
-        <h4>Locatiegegevens</h4>   <!-- Titel blok -->
-        <strong>Adres</strong> <!-- Label adres -->
-        <p>
-            Baron G.A. Tindalplein 12
-            1019 TJ Amsterdam;
-
-            Oostelijke Handelskade 8a
-            1019BM Amsterdam
-        </p> <!-- Adressen -->
+      <ul>
         
-    </li> <!-- Einde blok 1 -->
 
-    <li> <!-- Blok 2: contact -->
-        <h4>Contact</h4> <!-- Titel blok -->
-       <p>
-        Telefoon
-        020 - 418 55 62
-        E-mail
-        E-mail de school
-        Website
-        Bezoek schoolwebsite
-       </p> <!-- Contactgegevens in tekst -->
-    </li> <!-- Einde blok 2 -->
-
-    <li> <!-- Blok 3: contactpersoon -->
-        <h4>Contactpersoon</h4> <!-- Titel blok -->
         
-        Directeur
-        Jessica Mulder <!-- Naam en functie -->
-    </li> <!-- Einde blok 3 -->
-</ul> <!-- Einde lijst -->
-</section> <!-- Einde sectie locatie/contact -->
+        <li> 
 
-<!-- -------------------------
-  SECTIE: Over ASKO + CTA link
--------------------------- -->
-<section> <!-- Sectie met logo en toelichting -->
-<img src="https://www.askoscholen.nl/images/www.askoscholen.nl/Logo_ASKO_SCHOLEN.png" alt="Asko scholen logo"> <!-- ASKO-logo -->
-<p>
-    ASKO is een flexibele en betrouwbare werkgever met 35 basisscholen in Amsterdam en omstreken. Elke ASKO-school is uniek en we bieden een breed scala aan schoolconcepten (zoals Montessori, Jenaplan, Dalton en OGO). Door aandacht te hebben voor ieders talent investeren wij in bevlogen medewerkers die met passie en plezier aan het werk zijn en zich samen willen ontwikkelen. Voor iedere medewerker hebben we een rijk aanbod aan bovenschoolse werkgroepen, leerteams, trainingen en cursussen. Wij geloven dat blije medewerkers zorgen voor gelukkige leerlingen en tevreden ouders.
-
-Wij luisteren graag naar jouw wensen en ambities. Daar horen natuurlijk ook goede arbeidsvoorwaarden en een passende waardering bij.
-</p> <!-- Uitleg over ASKO -->
-<a href="#">Ontdek alle voordelen ➔</a> <!-- Link naar meer info -->
-</section> <!-- Einde sectie ASKO -->
-
-
-<!-- -------------------------
-  SECTIE: Vragen + Solliciteren 
--------------------------- -->
-<section class="kaarten-2e-pagina"> <!-- Sectie met twee kaarten -->
-<ul> <!-- Lijst met twee items -->
-    <li> <!-- Kaart: algemene vragen -->
-        <strong>Heb je een vraag?</strong> <!-- Kopje kaart -->
-        Heb je vragen over werken bij ASKO scholen in het algemeen? Wil je meer weten over vacatures, over de mogelijkheden en wat wij jou te bieden hebben? 
-        Neem contact met ons op via <a href="#">solliciteren@askoscholen.nl</a> <!-- Mail-link -->
-    </li> <!-- Einde kaart vragen -->
-
-    <li> <!-- Kaart: sollicitatie CTA -->
-        <strong>Is deze vacature iets voor jou?</strong> <!-- Kopje kaart -->
-        
-        <P>Reageer hier op de vacature. We zien je graag!</P> <!-- Oproep tot reageren -->
-        <a href="#" class="knoppenTwedeP">Solliciteren</a> <!-- CTA-knop solliciteren -->
+          <h3>Communicatiespecialist</h3>
+          
+          
+          <strong class="delen-label-row">
+        <span>Delen:</span>
+        <span class="deel-iconen">
+        <!-- Facebook delen link -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://jouwsite.nl/" target="_blank" rel="noopener" aria-label="Delen via Facebook">
+      <svg enable-background="new 0 0 32 32" height="32px" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <g>
+          <path d="M32,30c0,1.104-0.896,2-2,2H2c-1.104,0-2-0.896-2-2V2c0-1.104,0.896-2,2-2h28c1.104,0,2,0.896,2,2V30z" fill="#3B5998"/>
+          <path d="M22,32V20h4l1-5h-5v-2c0-2,1.002-3,3-3h2V5c-1,0-2.24,0-4,0c-3.675,0-6,2.881-6,7v3h-4v5h4v12H22z" fill="#FFFFFF"/>
+        </g>
+      </svg>
+    </a>
+    <!-- LinkedIn delen link -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://jouwsite.nl/" target="_blank" rel="noopener" aria-label="Delen via LinkedIn">
+      <svg viewBox="0 0 512 512" width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <g id="g5891">
+          <path d="M512,64c0,-35.323 -28.677,-64 -64,-64l-384,0c-35.323,0 -64,28.677 -64,64l0,384c0,35.323 28.677,64 64,64l384,0c35.323,0 64,-28.677 64,-64l0,-384Z" style="fill:#2867b2;"/>
+          <g id="shapes">
+            <rect height="257.962" width="85.76" x="61.053" y="178.667" style="fill:#fff;"/>
+            <path d="M104.512,54.28c-29.341,0 -48.512,19.29 -48.512,44.573c0,24.752 18.588,44.574 47.377,44.574l0.554,0c29.903,0 48.516,-19.822 48.516,-44.574c-0.555,-25.283 -18.611,-44.573 -47.935,-44.573Z" style="fill:#fff;fill-rule:nonzero;"/>
+            <path d="M357.278,172.601c-45.49,0 -65.866,25.017 -77.276,42.589l0,-36.523l-85.738,0c1.137,24.197 0,257.961 0,257.961l85.737,0l0,-144.064c0,-7.711 0.554,-15.42 2.827,-20.931c6.188,-15.4 20.305,-31.352 43.993,-31.352c31.012,0 43.436,23.664 43.436,58.327l0,138.02l85.741,0l0,-147.93c0,-79.237 -42.305,-116.097 -98.72,-116.097Z" style="fill:#fff;fill-rule:nonzero;"/>
+          </g>
+        </g>
+      </svg>
+    </a>
+    <!-- WhatsApp delen link -->
+    <a href="https://wa.me/?text=https://jouwsite.nl/" target="_blank" rel="noopener" aria-label="Delen via WhatsApp">
+      <svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient gradientUnits="userSpaceOnUse" id="linear-gradient" x1="32" x2="32" y1="4" y2="64.81">
+            <stop offset="0" stop-color="#1df47c"/><stop offset="0.31" stop-color="#12df63"/><stop offset="0.75" stop-color="#05c443"/><stop offset="1" stop-color="#00ba37"/>
+          </linearGradient>
+        </defs>
+        <rect fill="url(#linear-gradient)" height="64" rx="11.2" ry="11.2" width="64"/>
+        <path fill="#fff" d="M27.42,21.38l2,5.43a.76.76,0,0,1-.1.74,10.32,10.32,0,0,1-1.48,1.71.8.8,0,0,0-.16,1.09C28.91,32,32.1,36,36.25,37.43a.79.79,0,0,0,.89-.29l1.66-2.21a.8.8,0,0,1,1-.23L45,37.3a.79.79,0,0,1,.4,1c-.57,1.62-2.36,5.57-6.19,4.93A20.79,20.79,0,0,1,26.4,36c-3.14-3.92-9.34-14,.19-15.14A.8.8,0,0,1,27.42,21.38Z"/>
+        <path fill="#fff" d="M33.6,54.8a24.21,24.21,0,0,1-11.94-3.13l-12,3.08,4.41-9.91A22,22,0,0,1,10,32C10,19.43,20.59,9.2,33.6,9.2S57.2,19.43,57.2,32,46.61,54.8,33.6,54.8ZM22.29,47.37l.73.45a20.13,20.13,0,0,0,10.58,3c10.81,0,19.6-8.43,19.6-18.8S44.41,13.2,33.6,13.2,14,21.63,14,32a18.13,18.13,0,0,0,4,11.34l.75.95-3.61,6.12Z"/>
+      </svg>
+    </a>
+    <a href="mailto:?subject=Deel%20deze%20pagina&amp;body=https%3A%2F%2Fjouwsite.nl%2F" target="_blank" rel="noopener" aria-label="Delen via e-mail">
+    <svg width="32" height="32" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xmlns="http://www.w3.org/2000/svg">
+    <g id="_x31_12-gmail_x2C__email_x2C__mail">
+      <rect height="358.87" style="fill:#F1F5F7;" width="357.904" x="77.045" y="76.565"/>
+      <path d="M256.002,293.738l178.947,141.697v-279.74L256.002,293.738z M256.002,293.738" style="fill:#DCE6EA;"/>
+      <path d="M449.861,76.565h-14.912L256.002,218.26L77.045,76.565H62.134c-24.693,0-44.737,20.094-44.737,44.858v269.152
+        c0,24.759,20.044,44.859,44.737,44.859h14.911v-279.74l178.957,138.014l178.947-138.047v279.773h14.912
+        c24.699,0,44.742-20.101,44.742-44.859V121.424C494.604,96.66,474.561,76.565,449.861,76.565L449.861,76.565z M449.861,76.565"
+        style="fill:#F84437;"/>
+    </g>
+  </svg>
+     </a>
 
     
-    </li> <!-- Einde kaart solliciteren -->
+  </span>
+</strong>
 
-</ul> <!-- Einde lijst -->
-</section> <!-- Einde sectie vragen/solliciteren -->
 
-</main> 
 
-<!-- =========================
-  FOOTER
-========================== -->
-<footer> 
+          <p>Je vindt het geweldig om 25 leerlingen in groep 3 of 4 te begeleiden in hun ontwikkeling.</p>
+          <p><strong>En je wilt:</strong> 
+          • Een inspirerende leeromgeving creëren waarin je jouw talenten kunt delen.
+          • Je ontwikkelen.
+          • Samenwerken met collega’s.
+          </p>
+
+          <p><strong>Wat ga je doen:</strong> Je gaat een zwangerschap vervangen in groep 3 of 4.</p>
+          <p><strong>Wat vragen wij:</strong> 
+          • Een afgeronde Pabo-opleiding
+          • Ervaring of affiniteit met OGO en/of thematisch werken
+          • Open staan voor verdere ontwikkeling en samenwerking
+          </p>
+          <p><strong>Wat bieden wij:</strong> 
+          • Gymlessen verzorgd door vakleerkracht
+          • Een fijn en divers team
+          </p>
+          <a href="#" class="knoppenTwedeP">Direct solliciteren</a>
+        </li>
+
+        <li> <!-- twede kaart in eerste deel -->
+          <h3>Specificaties</h3>
+          <h5>Functie</h5>
+          <strong>Leerkracht groep 3 of 4</strong>
+          Periode
+          <strong>per 1 november (zwangerschapsvervanging)</strong>
+          <h5>Werktijdfactor (fte)</h5>
+          <strong>0,4 - 0,8</strong>
+          <h5>Salaris</h5>
+          <strong>LB</strong>
+        </li>
+      </ul>
+    </section>
+
+
+
+
+
+
+
+    
+
+    <!-- Sectie: Schoolinfo -->
+    <section class="video-tekst-container">
+      <h3>Basisschool De Achthoek</h3>
+      <p>
+        Op De Achthoek is leren leuk. Er is een rijke, krachtige leeromgeving waarin kinderen worden ondersteund en uitgedaagd te ontdekken, te leren en te doen. Binnen de veilige leeromgeving van de school bereiden wij hen voor op hun toekomst als wereldburgers. Dit doen we vanuit de visie van Ontwikkelings Gericht Onderwijs (OGO). Leerlingen krijgen de ruimte om hun persoonlijkheid te ontwikkelen en hun talenten te benutten. Samen met ouders geven we hen een stevige basis.   Het grote enthousiasme waarmee het team zich inzet om goed en uitdagend onderwijs te bieden is één van de...
+        <a href="#">Alles over deze school</a>
+      </p>
+      <iframe src="https://www.youtube.com/embed/BWp9KoXzIbM"
+        title="Video over Basisschool De Achthoek"
+        allowfullscreen
+        style="width:100%;max-width:800px;aspect-ratio:16/9;border:none;display:block;margin-top:10px;">
+      </iframe>
+    </section>
+
+
+
+    <!-- twede deel van karten ASKO Bestuursbureau bevat conact en locatie-->
+    <section class="twede-kaarten-2pagina">
+      <ul>
+  <li>
+    <h4>Locatiegegevens</h4>
+    <address>
+      <strong>Adres</strong><br>
+      Baron G.A. Tindalplein 12<br>
+      1019 TJ Amsterdam<br>
+      Oostelijke Handelskade 8a<br>
+      1019BM Amsterdam
+    </address>
+  </li>
+
+  <li>
+    <h4>Contact</h4>
+    <address>
+      Telefoon: <a href="tel:+31204185562">020 - 418 55 62</a><br>
+      E-mail: <a href="mailto:info@deschool.nl">E-mail de school</a><br>
+      Website: <a href="https://www.deschool.nl" target="_blank" rel="noopener">Bezoek schoolwebsite</a>
+    </address>
+  </li>
+
+  <li>
+    <h4>Contactpersoon</h4>
+    <p>Directeur Jessica Mulder</p>
+    <img src="https://www.askoscholen.nl/images/www.askoscholen.nl/Fotos_Directie_Scholen/Jessica_Mulder_directeur_def.jpg" alt="[translate:portretfoto van Jessica Mulder, directeur]">
+  </li>
+</ul>
+
+    </section>
+
+    <!-- Sectie: ASKO Info -->
+    <section class="derde-kaarten-2pagina">
+      <img src="https://www.askoscholen.nl/images/www.askoscholen.nl/Logo_ASKO_SCHOLEN.png" alt="Asko scholen logo">
+      <h3>Werken bij ASKO</h3>
+      <p>
+        ASKO is een werkgever met 35 basisscholen in Amsterdam. We bieden verschillende schoolconcepten en investeren in bevlogen medewerkers.
+        ASKO is een flexibele en betrouwbare werkgever met 35 basisscholen in Amsterdam en omstreken. Elke ASKO-school is uniek en we bieden een breed scala aan schoolconcepten (zoals Montessori, Jenaplan, Dalton en OGO). Door aandacht te hebben voor ieders talent investeren wij in bevlogen medewerkers die met passie en plezier aan het werk zijn en zich samen willen ontwikkelen. Voor iedere medewerker hebben we een rijk aanbod aan bovenschoolse werkgroepen, leerteams, trainingen en cursussen. Wij geloven dat blije medewerkers zorgen voor gelukkige leerlingen en tevreden ouders.
+
+         Wij luisteren graag naar jouw wensen en ambities. Daar horen natuurlijk ook goede arbeidsvoorwaarden en een passende waardering bij.
+      </p>
+      <a href="#">Ontdek alle voordelen</a>
+    </section>
+
+    <!-- Sectie: Vragen & Solliciteren -->
+    <section class="vierde-kaarten-2pagina">
+      <ul>
+        <li>
+          <h3>Heb je een vraag?</h3>
+          Heb je vragen over werken bij ASKO? Neem contact op via 
+          <a href="#">solliciteren@askoscholen.nl</a>
+        </li>
+        <li>
+          <strong>Is deze vacature iets voor jou?</strong>
+          <p>Reageer hier op de vacature. We zien je graag!</p>
+          <a href="#" class="knoppenTwedeP">Solliciteren</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+  <!-- socials: midden-centreren -->
+  <nav class="footer-social" aria-label="social media">
+    <a class="social-link" href="#" aria-label="YouTube">
+      <!-- YouTube -->
+      <svg enable-background="new 0 0 32 32" height="28" viewBox="0 0 32 32" width="28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <g>
+          <path d="M31.67,9.179c0,0-0.312-2.353-1.271-3.389c-1.217-1.358-2.58-1.366-3.205-1.443C22.717,4,16.002,4,16.002,4h-0.015 c0,0-6.715,0-11.191,0.347C4.171,4.424,2.809,4.432,1.591,5.79C0.633,6.826,0.32,9.179,0.32,9.179S0,11.94,0,14.701v2.588 c0,2.763,0.32,5.523,0.32,5.523s0.312,2.352,1.271,3.386c1.218,1.358,2.815,1.317,3.527,1.459C7.677,27.919,15.995,28,15.995,28 s6.722-0.012,11.199-0.355c0.625-0.08,1.988-0.088,3.205-1.446c0.958-1.034,1.271-3.386,1.271-3.386s0.32-2.761,0.32-5.523v-2.588 C31.99,11.94,31.67,9.179,31.67,9.179z" fill="#E02F2F"/>
+          <polygon fill="#FFFFFF" points="12,10 12,22 22,16"/>
+        </g>
+      </svg>
+    </a>
+
+    <a class="social-link" href="#" aria-label="Instagram">
+      <!-- Instagram -->
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g" x1="328.27" x2="183.73" y1="508.05" y2="3.95" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ffdb73"/>
+            <stop offset="0.08" stop-color="#fdad4e"/>
+            <stop offset="0.15" stop-color="#fb832e"/>
+            <stop offset="0.19" stop-color="#fa7321"/>
+            <stop offset="0.23" stop-color="#f6692f"/>
+            <stop offset="0.37" stop-color="#e84a5a"/>
+            <stop offset="0.48" stop-color="#e03675"/>
+            <stop offset="0.55" stop-color="#dd2f7f"/>
+            <stop offset="0.68" stop-color="#b43d97"/>
+            <stop offset="0.97" stop-color="#4d60d4"/>
+            <stop offset="1" stop-color="#4264db"/>
+          </linearGradient>
+        </defs>
+        <rect x="23.47" y="23.47" width="465.06" height="465.06" rx="107.23" ry="107.23" fill="url(#g)"/>
+        <path fill="#fff" d="M331 115.22A66.92 66.92 0 0 1 397.65 181.87V330.13A66.92 66.92 0 0 1 331 396.78H181A66.92 66.92 0 0 1 114.35 330.13V181.87A66.92 66.92 0 0 1 181 115.22ZM256 167.13A88.87 88.87 0 1 0 344.87 256 88.87 88.87 0 0 0 256 167.13Zm90.81-3.9a21.07 21.07 0 1 0 21.07 21.07 21.07 21.07 0 0 0-21.07-21.07Z"/>
+      </svg>
+    </a>
+
+    <a class="social-link" href="#" aria-label="Facebook">
+      <!-- Facebook -->
+      <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <circle cx="500" cy="500" r="500" fill="#3B579D"/>
+        <path fill="#fff" d="M630 1000V612.7h130l19.5-150.9H630v-96.4c0-43.7 12.1-73.5 74.8-73.5h79.9V157c-13.8-1.8-61.3-5.9-116.5-5.9-115.2 0-194.1 70.3-194.1 199.5v111.3H343.8v150.9h130.3V1000H630z"/>
+      </svg>
+    </a>
+  </nav>
+
+
+
   <p>
-    © 2025 ASKOSCHOLEN&nbsp;|&nbsp; <!-- Copyright -->
-    <a href="tel:0204185562">020 4185562</a>&nbsp;|&nbsp; <!-- Telefoonlink -->
-    <a href="mailto:achthoek.info@askoscholen.nl">achthoek.info@askoscholen.nl</a>&nbsp;|&nbsp; <!-- E-mail link -->
-    <a href="https://www.achthoek.nl/beheer">Beheer</a> <!-- Link naar beheer -->
+    © 2025 ASKOSCHOLEN |
+    <a href="tel:0204185562">020 4185562</a> |
+    <a href="mailto:achthoek.info@askoscholen.nl">achthoek.info@askoscholen.nl</a> |
+    <a href="https://www.achthoek.nl/beheer">Beheer</a>
   </p>
-</footer> <!-- Einde footer -->
+</footer>
 
 
-</body> <!-- Einde body -->
+  <script defer src="scripts/script.js"></script>
+</body>
+</html>

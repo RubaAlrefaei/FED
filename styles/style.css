@@ -1,39 +1,211 @@
+/* =======================================
+   ===== TYPOGRAFIE & LETTERTYPE =====
+   ======================================= */
 
-/* ======= BASIS INSTELLINGEN ======= */
-*, *::after, *::before { 
-  box-sizing:border-box;   
+/* 1. betrouwbare bron (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* 2. Basislettertype voor hele site */
+html {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+               Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+               sans-serif;
+  font-size: 16px; /* zorgt voor consistente basis */
+  line-height: 1.5; /* goede leesbaarheid */
+}
+
+/* 3. Erft automatisch voor alle elementen */
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+
+
+/* Alle elementen gebruiken border-box */
+*, *::after, *::before {
+  box-sizing: border-box;
 } /* Alle elementen gebruiken border-box: padding/border vallen binnen breedte/hoogte */
 
+/* Basisveiligheid & defaults */
+html, body { margin: 0; width: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video { max-width: 100%; height: auto; }
+body { overflow-x: hidden; } /* vangnet tegen horizontale scroll */
 
-/*********************/ 
-/* CUSTOM PROPERTIES */ 
-/*********************/ 
+
 /* === LIGHT MODE (standaard) === */
-:root {
-  --color-text: #111;        /* Tekstkleur (donkergrijs/zwart) */
-  --color-bg: #f1f7f7;       /* Achtergrondkleur van de hele pagina */
-  --color-surface: #fff;     /* Kleur voor vlakken zoals header, kaarten */
-  --color-border: #ddd;      /* Randkleur (lichtgrijs) */
-  --color-hover-bg: #b517f6; /* Hoverkleur (fel paars) */
-  --color-hover-text: #fff;  /* Tekstkleur bij hover (wit) */
-}
 
-/* Past de standaard kleuren toe */
-body {
-  background-color: var(--color-bg); /* Achtergrond van de pagina */
-  color: var(--color-text);          /* Tekst op de pagina */
-}
 
-/* === DARK MODE (volgt systeeminstelling) === */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text: #eee;        /* Tekstkleur in dark mode (licht) */
-    --color-bg: #111;          /* Donkere achtergrond voor body */
-    --color-surface: #1a1a1a;  /* Donkere vlakken (header, kaarten) */
-    --color-border: #333;      /* Randkleur in dark mode (donkergrijs) */
-    --color-hover-bg: #cf4bff; /* Hoverkleur in dark mode (lichter paars) */
-    --color-hover-text: #111;  /* Tekstkleur bij hover in dark mode (donker) */
+
+
+/* =====================================================
+   DARK MODE — opgeschoonde definitieve versie
+   ===================================================== */
+@media (prefers-color-scheme: dark) { /* Activeert donkere modus bij systeeminstelling */
+
+  /* ===== 1️⃣ Algemene dark mode ===== */
+
+  html, body {
+    background: #212121 !important; /* Hele achtergrond zwart */
+    color: #fff !important;      /* Witte standaardtekst */
   }
+
+  /* --- Links overal wit met soepele hover --- */
+  a, article a, p a, li a,
+  .video-tekst-container a,
+  section.activiteiten p a,
+  .kaart p a, .kaart-social p a {
+    color: #fff !important;                 /* Witte links */
+    text-decoration: none;                  /* Geen lijn standaard */
+    transition: color .2s, text-decoration .2s;
+  }
+  a:hover, article a:hover, p a:hover, li a:hover,
+  .video-tekst-container a:hover,
+  section.activiteiten p a:hover,
+  .kaart p a:hover, .kaart-social p a:hover {
+    text-decoration: underline;             /* Onderstreping bij hover */
+  }
+
+  /* --- Containers en kaarten --- */
+  .kaart, .kaart-social, .kaart-container .kaart,
+  section.activiteiten li,
+  .eerste-kaarten-2pagina > ul > li,
+  .twede-kaarten-2pagina > ul > li {
+    background: #595858 !important;         /* Donkere kaarten */
+    color: #fff !important;                 /* Tekst wit */
+    border: 1px solid #655f5f !important;   /* Subtiele rand */
+    border-radius: 16px !important;         /* Afgeronde hoeken */
+    box-shadow: 0 4px 16px rgba(255,255,255,.5); /* Lichte schaduw */
+  }
+
+  /* --- Knoppen (ook hero en header) --- */
+  button, [type="button"], [type="submit"],
+  header > button,
+  .link-knoppen, .knoppenTwedeP,
+  main nav ul li:nth-child(-n+4) a,
+  #informatie-momenten {
+    background: #202020 !important;         /* Donkergrijs vlak */
+    color: #fff !important;                 /* Witte tekst */
+    border: none;
+    border-radius: 300px !important;        /* Pill-vorm */
+    box-shadow: 0 2px 8px rgba(255,255,255,.3);
+    font-weight: 600;                       /* Dikker lettergewicht */
+    transition: background .22s cubic-bezier(.4,0,.2,1);
+  }
+  button:hover, [type="button"]:hover, [type="submit"]:hover,
+  header > button:hover,
+  .link-knoppen:hover, .knoppenTwedeP:hover,
+  main nav ul li:nth-child(-n+4) a:hover,
+  #informatie-momenten:hover {
+    background: #3d3d3d !important;         /* Iets lichter bij hover */
+  }
+
+  /* --- Header en zoekveld --- */
+  header {
+    background: #000 !important;            /* Zwarte header */
+    box-shadow: 0 2px 8px rgba(0,0,0,.6);   /* Subtiele schaduw */
+    color: #fff;
+  }
+  header input[type="search"] {
+    background: #111 !important;            /* Donker invoerveld */
+    color: #fff !important;
+    border: 1px solid #2b2b2b !important;   /* Rand */
+    border-radius: 8px;
+  }
+
+  /* --- Footer & flex-footer-list --- */
+  footer, .site-footer, section.flex-footer-list {
+    background: #4d4c4c !important;         /* Donkere footer */
+    color: #fff !important;
+    border: none;
+  }
+  footer .kaart, footer .kaart-social,
+  .site-footer .kaart, .site-footer .kaart-social {
+    background: #0f0f0f !important;         /* Donkere blokken in footer */
+    border: 1px solid #2b2b2b !important;
+    color: #fff !important;
+  }
+  footer a:hover { text-decoration: underline !important; } /* Hover-underline */
+
+  /* --- Media & iconen behouden kleur --- */
+  img, picture, video, iframe, svg, canvas {
+    filter: none !important;                /* Geen kleurinversie */
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+  }
+  svg, svg * {
+    fill: initial !important;               /* Originele SVG-kleur */
+    stroke: initial !important;
+    color: inherit !important;
+  }
+
+  /* --- Tekst binnen containers altijd wit --- */
+  .kaart *, .kaart-social *,
+  footer *, section.flex-footer-list *,
+  section.activiteiten li * {
+    color: #fff !important;                 /* Altijd wit */
+    text-shadow: none !important;
+  }
+
+  /* =====================================================
+       tweede pagina "Informatiemomenten"
+     ===================================================== */
+
+  /* --- Containers van tweede pagina --- */
+  section.eerste-kaarten-2pagina li,
+  section.twede-kaarten-2pagina li,
+  section.derde-kaarten-2pagina,
+  section.vierde-kaarten-2pagina li {
+    background: #616060 !important;         /* Donkergrijs vlak */
+    color: #fff !important;
+    border: 1px solid #2b2b2b !important;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.45);
+    padding: 1.2em;
+  }
+
+  /* --- Titels --- */
+  section h3, section h4, section p, section h5 {
+    color: #fff !important;
+    margin-bottom: .6em;
+  }
+
+  /* --- Specifieke knop op tweede pagina --- */
+  .knoppenTwedeP {
+    background: #222 !important;
+    color: #fff !important;
+    border: 1px solid #444 !important;
+    border-radius: 300px;
+    padding: .6em 1.6em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .25s ease;
+  }
+  .knoppenTwedeP:hover {
+    background: #5d5c5c !important;
+  }
+
+  /* --- Deel-iconen --- */
+  .deel-iconen a { margin-right: .5em; }
+  .deel-iconen svg {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+
+  /* --- Video & iframe --- */
+  .video-tekst-container iframe {
+    border: 1px solid #868383 !important;   /* Rand zichtbaar */
+    box-shadow: 0 4px 10px rgba(252,250,250,.65);
+  }
+
+  /* --- Footer van tweede pagina --- */
+  footer.site-footer {
+    background: #4e4d4d !important;            /* Zwarte footer */
+    color: #fff !important;
+    border-top: 1px solid #cfcaca;          /* Duidelijke lijn bovenaan */
+  }
+  footer.site-footer a { color: #fff !important; }
 }
 
 
@@ -41,308 +213,328 @@ body {
 
 
 
-/* ======= HEADER STYLING ======= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   ===== LAYOUT: HEADER & NAVIGATIE =====
+   ===================================== */
+/* het logo zit in <a>, dat element krijgt de grid-area */
 header {
-  display: grid;                             /* grid om layout te maken */
-  grid-template-columns: auto 1fr auto auto; /* logo - menu - knop1 - knop2 */
-  grid-template-areas: "logo nav btn1 btn2"; /* naamgeving van de vakken */
-  align-items: center;                       /* verticaal uitlijnen */
-  gap: 12px;                                 /* ruimte tussen items */
-  padding: 12px 16px;                        /* binnenmarges */
-  background: #fff;                          /* witte achtergrond */
-  box-shadow: 0 2px 6px rgba(0,0,0,.05);     /* subtiele slagschaduw */
+  display: grid;
+  grid-template-columns: 1fr auto auto;   /* mobiel: logo | btn1 | btn2 */
+  grid-template-areas: "logo btn1 btn2";
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.05);
 }
 
-header a img {
-  grid-area: logo;   /* logo komt in gridvak 'logo' */
-  height: 40px;      /* vaste hoogte logo */
-  width: auto;       /* breedte schaalt automatisch */
-  display: block;
-}
+header > a { grid-area: logo; }
+header > a img { height: 50px; width: auto; display: block; }
+header > button:first-of-type { grid-area: btn1; }
+header > button:last-of-type  { grid-area: btn2; }
 
-header nav {
-  grid-area: nav;    /* nav in gridvak */
-  margin-top: 0;
-}
-
-header nav ul {
-  display: flex;     /* horizontale links */
-  gap: 16px;         /* ruimte tussen links */
-  list-style: none;  /* lijst-streepjes uit */
-  margin: 0;
-  padding: 0;
-}
-/* Standaard links */
-header nav a {
-  text-decoration: none;
-  color: #000000;
-  font-size: 0.95rem;
-  padding: 6px 10px;      /* extra ruimte voor de hover-box */
-  border-radius: 0;       /* vierkante vorm */
-  transition: all 0.2s ease;
-}
-
-/* Hover en focus */
-header nav a:hover,
-header nav a:focus-visible {
-  background-color: #6b01b3;   /* felle paarse kleur */
-  color: #fff;                 /* witte tekst voor contrast */
-  outline: 2px solid #9b00ff;  /* extra outline voor duidelijkheid */
-  outline-offset: 2px;         /* klein beetje ruimte rond de box */
-}
-
-
+/* Ronde icon-knoppen in header */
 header > button {
   width: 44px; height: 44px;           /* ronde knoppen (icon-knop) */
   display: grid; place-items: center;  /* icon centreren */
-  border: 1px solid #ddd;              /* grijze rand */
+  border: 1px solid #000000;           /* kluer rand */
   border-radius: 50%;                  /* cirkelvorm */
-  background: #fff;                    /* witte achtergrond */
+  background: #ffffff;                 /* witte achtergrond */
   cursor: pointer;
   padding: 0;
+
+}
+
+header > button:hover,
+header > button:focus {
+  background-color: rgb(255, 189, 23); /* paarse achtergrond op hover/focus */
+  transition: background-color 0.3s ease, color 0.3s ease; /* soepele overgang */
 }
 
 
+header > button svg { width: 22px; height: 22px;  /* icon groot */ }
 
+/* Nav standaard verbergen op small screens */
+header nav { display: none; }
 
-header > button:first-of-type { grid-area: btn1; margin-right: 8px; } /* Mozilla Developer Network. (2025). grid-area */
-header > button:last-of-type  { grid-area: btn2; }
-
-header > button svg {
-  width: 22px; height: 22px;  /* icon groot */
-  color: #111;
-}
-
+/* Zoekveld onder de rij, full width */
 header input[type="search"] {
-  grid-column: 1 / -1;                  /* loopt over hele breedte van grid */
+  grid-column: 1 / -1;
   margin-top: 12px;
-  width: 100%;
-  height: 44px;                         /* zoekbalk hoogte */
-  border: 1px solid #ddd;
-  border-radius: 999px;                 /* volledig ovaal */
-  background: #fafafa;                  /* lichtgrijs */
-  padding: 0 44px 0 14px;               /* ruimte links en rechts */
+  width: 100%; height: 44px;
+  border: 1px solid #ddd; border-radius: 999px;
+  background: #fafafa;
+  padding: 0 44px 0 14px;
   font-size: 1rem;
-  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* focusstijl voor toegankelijkheid */
-header > button:focus-visible,
-header nav a:focus-visible,
-header input[type="search"]:focus-visible {
-  outline: 3px solid #111;   /* donkere rand bij zoekveld */
-  outline-offset: 2px;
+/* Hover en focus voor navigatielinks in header */
+header nav a:hover,
+header nav a:focus-visible {
+  background-color: #fbb94f;   /* felle paarse kleur */
+  color: #000000;                 /* witte tekst voor contrast */
 }
 
 
-/* ======= MAIN NAVIGATIEBLOK ======= */
+
+
+/* =====================================
+   ===== LAYOUT: MAIN NAVIGATIEBLOK =====
+   ===================================== */
+/* ===================================== 
+   ===== LAYOUT: MAIN NAVIGATIEBLOK =====
+   ===================================== */
+
+/* Hoofdcontainer van de hero/navigatie */
 main nav {
   background-image: url("../images/achter-foto-kleurblokken.png"); /* achtergrondafbeelding */
-  background-size: cover;      /* beeld vult alles */
+  background-size: cover;            /* laat het beeld alles vullen */
+  background-position: center;       /* hou het midden in beeld */
+  height: 450px;                     /* vaste hoogte voor de hero */
+
+  position: relative;                /* nodig voor de ::after-laag */
+  display: grid;                     
+  grid-template-columns: 70% 30%;    /* geef de foto meer ruimte (links) en knoppen rechts */
+  align-items: stretch;              
+  gap: 0;                            
+  padding: 0;                        
+  background-color: #f5f5f5;         /* basisachtergrond onder de overlay */
+  overflow: hidden;                  /* alles netjes binnen de randen houden */
+
+  width: 100vw;                      /* volle breedte van het scherm */
+  margin-left: calc(-50vw + 50%);    /* haalt standaard centrering weg */
+  border-radius: 0;                  /* rechte hoeken houden */
+}
+
+/* ---- Linkerzijde met foto + overlay ---- */
+.nav-image-side {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* parent bepaalt de randen */
+}
+
+/* Foto vult de hele linker kolom */
+.nav-image-side .kids-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* vult zonder te rekken */
+  object-position: 40% 35%;          /* gezichten mooi in beeld */
+  display: block;                    
+}
+
+/* Gekleurde vormen als overlay boven de foto */
+.nav-image-side .overlay-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;                       /* verhouding behouden */
+  object-fit: contain;               /* geen vervorming */
+  object-position: left center;      /* verankerd aan linkerkant */
+  pointer-events: none;              /* niet klikbaar */
+  opacity: 1;                        
+  mix-blend-mode: normal;            /* geen gele waas */
+}
+
+/* ---- Achtergrondlaag achter de knoppen met ::after ---- */
+main nav::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;                        /* zelfde breedte als rechter kolom */
+  height: 100%;
+  background-image: url("https://cdn.askoscholen.nl/www.achthoek.nl/template/img/visual-overlay.png");
+  background-repeat: no-repeat;
+  background-size: cover;            /* vult die 30% kolom */
   background-position: center;
-  height: 350px;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* links afbeelding, rechts knoppen */
-  gap: 2rem;
-  align-items: center;
-  padding: 1rem;
+  z-index: 0;                        /* ligt achter de knoppen */
 }
 
-main nav img {
-  width: 170px;
-  height: auto;
-  display: block;
-  border-radius: 8px;     /* afgeronde hoeken */
-}
-
+/* ---- Rechterzijde met de knoppen ---- */
 main nav ul {
-  list-style: none;       /* geen bullets */
+  position: relative;
+  z-index: 1;                        /* boven de achtergrondlaag */
+  list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 1.25rem;                  /* ruimte rondom de knoppen */
   display: flex;
-  flex-direction: column; /* knoppen onder elkaar */
-  gap: 0.7rem;            /* ruimte tussen knoppen */
+  flex-direction: column;
+  gap: 0.6rem;
   justify-content: center;
   align-items: flex-start;
+  max-width: 520px;
+  margin-left: auto;                 /* uitgelijnd aan de rechterkant */
 }
 
-/* Eerste 4 paars knoppen */
+/* De eerste 4 witte knoppen (pilvorm) */
 main nav ul li:nth-child(-n+4) a {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #fff;   /* wit */
-  color: #000;              /* zwart */
-  border-radius: 300px;     /* pilvorm */
+  display: block;                    
+  width: 300px;                      /* vaste breedte voor alle knoppen */
+  text-align: left;                  /* tekst links uitlijnen */
+  padding: 10px 20px;                
+  background-color: #fff;
+  color: #000;
+  border-radius: 300px;              /* pilvorm */
+  font-size: 18px;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* nette overgang */
+  transition: background-color 0.3s ease; /* zachte hoverovergang */
 }
 
+/* Hover-effect voor de witte knoppen */
 main nav ul li:nth-child(-n+4) a:hover,
 main nav ul li:nth-child(-n+4) a:focus {
-  background-color: rgb(108, 64, 108); /* paars */
-  color: white;
+  background-color: rgb(108, 64, 108); /* paars op hover */
+  color: #fff;
 }
 
-/* Speciaal voor 5e knop */
+/* 5e knop – standaard paars */
 #informatie-momenten {
-  background-color: rgb(108, 64, 108); /* paars */
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
+  background-color: rgb(108, 64, 108);
+  color: #fff;
+  padding: 20px;                     /* iets groter dan de witte knoppen */
+  border-radius: 8px;                /* geen pilvorm hier */
   text-decoration: none;
   display: inline-block;
   font-weight: 600;
+  width: 300px;
+  font-size: 17px;                   
 }
 
+/* Hover voor de paarse knop */
 #informatie-momenten:hover,
 #informatie-momenten:focus {
-  background-color: rgb(68, 45, 111); /* donkerder paars */
-  color: white;
+  background-color: rgb(230, 107, 0); /* warme hoverkleur */
+  color: #fff;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 900px) {
+  main nav {
+    grid-template-columns: 1fr;      /* foto boven, knoppen onder */
+    min-height: unset;               
+  }
+
+  .nav-image-side {
+    height: 250px;                   /* vaste hoogte voor de foto op mobiel */
+  }
+
+  .nav-image-side .kids-photo {
+    object-position: 35% 40%;        /* uitsnede iets verschuiven */
+  }
+
+  /* Achtergrond onder de knoppen */
+  main nav::after {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 260px;                   /* hoogte achter de knoppen */
+    bottom: 0;
+    top: auto;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Knoppen centreren op mobiel */
+  main nav ul {
+    align-items: center;
+    padding: 1rem 0.75rem 1.5rem;    
+    max-width: none;
+    margin-left: 0;                  
+  }
+
+  main nav ul li a,
+  #informatie-momenten {
+    width: min(520px, 92%);          /* breedte aanpassen aan scherm */
+    text-align: center;              /* tekst in het midden */
+  }
 }
 
 
-/* ======= ALGEMENE KNOPPEN ======= */
-.link-knoppen {
-  padding: 10px 20px;
-  border: 3px solid rgb(2, 2, 84);
-  color: rgb(2, 2, 84);
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 9999px;   /* volledig rond */
-  transition: 0.3s;
-  padding: 10px 20px;
-  border: 3px solid rgb(2, 2, 84);
-  color: rgb(2, 2, 84);
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 9999px;   /* volledig rond */
-  transition: 0.3s;
-
-  display: inline-block;   /* zorgt dat margin werkt */
-  margin: 1.5rem 0;        /* ruimte boven en onder */
-}
-
-.link-knoppen:hover {
-  background-color: darkblue;
-  color: white;
-}
-
-ul li img {
-  width: 150px;
-  height: auto;
-}
 
 
-/* ======= SECTION ======= */
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   ===== LAYOUT: SECTIES & TITELS =====
+   ===================================== */
+/* Standaard sectie-elementen */
 section img { width: 100px; } /* standaard sectie-afbeelding */
 section svg { width: 20px; }  /* standaard iconen */
+
+/* H2 met achtergrondbalk */
 h2 {
-  background-image: url('../images/balk2.foto.png'); /* kopbalk achtergrond */
-  text-align: center;
-}
-
-
-
-/* ======= RESPONSIVE WEERGAVE KAARTEN ======= */
-.kaart-container {
+  background-image: url('https://cdn.askoscholen.nl/www.achthoek.nl/template/img/footer-bg.png');
+  background-repeat: repeat-x;     /* herhaal de afbeelding horizontaal */
+  background-position: center;     /* centreren verticaal */
+  background-size: auto 100%;      /* hoogte = elementhoogte, breedte schaalt */
+  height: 140px;                   /* maakt de band langer */
   display: flex;
-  flex-direction: column; /* standaard onder elkaar */
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.kaart {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center; 
-  text-align: center;
-  flex: 1 1 300px; /* basisbreedte 300px, groeit met scherm */
-  max-width: 100%;
-}
-
-.kaart img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-}
-
-.kaart-titel { font-size: 1.2rem; margin: 0.5rem 0; }
-.kaart-beschrijving { font-size: 0.95rem; line-height: 1.4; }
-
-/* Grotere schermen: naast elkaar */
-@media (min-width: 768px) {
-  .kaart-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .kaart {
-    max-width: 300px;
-  }
-}
-
-
-/* ======= TWEEDE PAGINA ELEMENTEN ======= */
-.knoppenTwedeP {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #ffa202; /* oranje knop */
-  color: #000;              /* zwarte tekst */
-  border-radius: 300px;     /* pilvorm */
-  text-decoration: none;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.knoppenTwedeP:hover { background-color: #a5d7f8; } /* lichtblauw hover */
-
-/* Kaartenpagina 2 */
-.kaarten-2e-pagina ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
+  align-items: center;
   justify-content: center;
+  margin: 0;
+  color: #000000;                     /* pas aan voor leesbaarheid */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3); /* zachte schaduw voor contrast */
+  font-weight: 700;
+  font-size: 28px;
+  margin: 2rem 0 2rem;             /* ↑ ruimte boven & onder */
 }
 
-.kaarten-2e-pagina li {
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 20px;
-  flex: 1 1 300px;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+h6 {
+  display: none;
 }
 
-/* mobiel: kaarten full width */
-@media (max-width: 450px) {
-  .kaarten-2e-pagina li {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+
+
+
+
+a{
+  color: #000000;
+font-weight: bold;
 }
 
 
 /* Sectietitel en datum en tijden activiten */
-section.activiteiten {
-  margin: 2rem 0; /* ruimte boven en onder de sectie */
-}
+section.activiteiten { margin: 2rem 0; /* ruimte boven en onder de sectie */ }
 section.activiteiten h2 {
   font-size: 2rem; /* grote hoofdtitel */
   margin: 0 0 .5rem; /* kleine ruimte onder titel */
@@ -401,52 +593,7 @@ section.activiteiten li > p:last-of-type {
   font-weight: 600; /* duidelijk leesbaar maar minder vet dan datum */
 }
 
-/* Responsief gedrag */
-@media (min-width: 768px) {
-  section.activiteiten li > p:last-of-type { 
-    padding: 1.25rem 1.5rem; /* meer ruimte op grotere schermen */
-  }
-  section.activiteiten li > p:first-of-type { 
-    flex: 0 0 120px; /* iets bredere linkerkolom */
-  }
-}
-
-
-
-
-
-/* ======= tekst onder FOOTER LIST ======= */
-.flex-footer-list ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  background-color: #ffffff;
-}
-
-.flex-footer-list li {
-  flex: 1 1 300px;
-  box-sizing: border-box;
-  min-width: 250px;
-  font-size: 110%;
-}
-
-
-/* ======= FOOTER ======= */
-footer {
-  background-color: hsl(40, 7%, 92%); /* donkerpaars */
-  color: #000000;           /* witte tekst */
-  font-size: 80%;
-  padding: 1.5rem;          /* wat binnenruimte voor luchtigheid */
-  text-align: center;       /* tekst netjes in het midden */
-  
-}
-
-
-
-/* ====== foto ASKO schoelen die onder fotter moet ====== */
+/* ASKO sectie (foto onder footer) */
 section[aria-labelledby="asko"] {
   text-align: center;
   margin: 4rem 0;          /* extra ruimte boven/onder */
@@ -458,9 +605,7 @@ section[aria-labelledby="asko"] p {
   margin-bottom: 1.5rem;
 }
 
-section[aria-labelledby="asko"] figure {
-  margin: 0 auto 2rem auto; 
-}
+section[aria-labelledby="asko"] figure { margin: 0 auto 2rem auto; }
 
 section[aria-labelledby="asko"] img {
   max-width: 350px;        /* foto groter */
@@ -474,103 +619,1283 @@ section[aria-labelledby="asko"] img[aria-hidden="true"] {
 }
 
 
+/* =====================================
+   ===== COMPONENTEN: KAARTEN/UIs =====
+   ===================================== */
+/* ======= RESPONSIVE WEERGAVE KAARTEN ======= */
+.kaart-container {
+  display: flex;
+  flex-direction: column; /* standaard onder elkaar */
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.kaart {
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  flex: 1 1 300px; /* basisbreedte 300px, groeit met scherm */
+  max-width: 100%;
+}
+
+.kaart img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.kaart-titel { font-size: 1.2rem; margin: 0.5rem 0; }
+.kaart-beschrijving { font-size: 0.95rem; line-height: 1.4; }
+
+
+
+.kaart-container {
+  display: flex;
+  flex-direction: column; /* mobiel onder elkaar */
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kaart {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1 1 300px;
+  max-width: 100%;
+}
+
+/* kaarten van social media naast elkaar op grotere schermen */
+@media (min-width: 768px) {
+  .kaart-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .kaart { max-width: 350px; }
+}
+
+
+
+
+/* ===== Container ===== */
+.social-kaart-container {
+  display: flex; /* zet kaarten naast of onder elkaar */
+  flex-direction: column; /* standaard: onder elkaar (mobiel) */
+  gap: 1.5rem; /* ruimte tussen kaarten */
+  margin: 0; /* geen buitenmarge */
+  padding: 0; /* geen binnenmarge */
+  list-style: none; /* geen opsommingstekens */
+}
+
+/* ===== Kaart ===== */
+.kaart-social {
+  background: #fff; /* witte achtergrond */
+  border-radius: 16px; /* afgeronde hoeken */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .10); /* zachte schaduw */
+  overflow: visible; /* voorkomt dat afbeelding wordt afgesneden */
+  padding: 16px; /* binnenruimte in de kaart */
+
+  /* grid lay-out */
+  display: grid; /* gebruik grid voor nette verdeling */
+  grid-template-columns: auto auto 1fr; /* kolommen: logo | icoon | tekst */
+  grid-template-areas: /* indeling van de rijen en kolommen */
+    "avatar social title"
+    "avatar social date"
+    "media  media  media"
+    "body   body   body"
+    "meta   meta   meta";
+  column-gap: 10px; /* horizontale ruimte tussen kolommen */
+  row-gap: 8px; /* verticale ruimte tussen rijen */
+
+  max-width: 680px; /* maximale breedte van één kaart */
+  margin-inline: auto; /* centreer de kaart horizontaal */
+}
+
+/* ===== Header ===== */
+/* logo/avatar */
+.kaart-social > img:first-of-type {
+  grid-area: avatar; /* plaats in 'avatar' vak van grid */
+  width: 48px; /* breedte van logo */
+  height: 48px; /* hoogte van logo */
+  border-radius: 50%; /* maak logo rond */
+  object-fit: cover; /* houd verhouding goed */
+  align-self: start; /* plaats bovenaan in de cel */
+}
+
+/* facebook-icoon */
+.kaart-social > svg:first-of-type {
+  grid-area: social; /* plaats in 'social' vak van grid */
+  width: 22px; /* icoonbreedte */
+  height: 22px; /* icoonhoogte */
+  align-self: center; /* verticaal gecentreerd naast logo */
+  justify-self: start; /* uitlijnen aan linkerkant */
+  color: #1877F2; /* Facebook-blauw */
+}
+
+/* titel */
+.kaart-social > h3 {
+  grid-area: title; /* plaats in 'title' vak */
+  margin: 0; /* geen marge */
+  font-size: 1.25rem; /* lettergrootte titel */
+  line-height: 1.2; /* compacte regelafstand */
+}
+
+/* datum */
+.kaart-social > h3 + p {
+  grid-area: date; /* plaats in 'date' vak */
+  margin: 2px 0 0 0; /* kleine marge boven */
+  font-size: .95rem; /* iets kleiner lettertype */
+  color: #64748b; /* grijze kleur voor subtiel effect */
+}
+
+/* ===== Media ===== */
+/* hoofdafbeelding */
+.kaart-social > img:nth-of-type(2) {
+  grid-area: media; /* plaats in 'media' vak */
+  display: block; /* blokweergave (geen inline-gap) */
+  width: 100%; /* altijd volle breedte */
+  height: auto; /* behoud verhoudingen, geen croppen */
+  border-radius: 12px; /* zachte afgeronde randen */
+  margin-top: 8px; /* ruimte boven afbeelding */
+}
+
+/* ===== Body ===== */
+.kaart-social > img:nth-of-type(2) + p {
+  grid-area: body; /* plaats in 'body' vak */
+  margin: 12px 0 0 0; /* ruimte boven tekst */
+  text-align: left; /* tekst links uitlijnen */
+  line-height: 1.5; /* prettige leesafstand */
+  font-size: 1rem; /* standaard tekstgrootte */
+}
+
+/* ===== Footer (likes/reacties) ===== */
+.kaart-social-footer {
+  grid-area: meta; /* plaats in 'meta' vak */
+  display: flex; /* iconen op één lijn */
+  gap: 18px; /* ruimte tussen iconen */
+  align-items: center; /* verticaal centreren */
+  margin-top: 6px; /* ruimte boven de footer */
+}
+
+.kaart-social-footer .item {
+  display: inline-flex; /* icoon + tekst in één rij */
+  align-items: center; /* verticaal gecentreerd */
+  gap: 6px; /* kleine ruimte tussen icoon en cijfer */
+  color: #525252; /* donkergrijs voor tekst */
+  font-size: .95rem; /* iets kleinere tekst */
+}
+
+.kaart-social-footer svg {
+  width: 20px; /* icoonbreedte */
+  height: 20px; /* icoonhoogte */
+}
+
+/* ===== Responsiveness ===== */
+@media (min-width: 768px) { /* tablet en groter */
+  .social-kaart-container {
+    flex-direction: row; /* kaarten naast elkaar */
+    flex-wrap: wrap; /* breek naar volgende rij indien nodig */
+    justify-content: center; /* centreren in container */
+  }
+
+  .kaart-social {
+    flex: 1 1 320px; /* flexibele breedte */
+    max-width: 360px; /* vaste max-breedte per kaart */
+    overflow: hidden; /* mag randen clippen */
+  }
+}
+
+@media (min-width: 1200px) { /* grote schermen */
+  .kaart-social {
+    max-width: 400px; /* iets bredere kaarten */
+  }
+}
+
+/* algemene img-regel binnen kaarten */
+.kaart-social img {
+  max-width: 100%; /* afbeelding nooit breder dan kaart */
+  height: auto; /* behoud verhoudingen */
+}
 
 
 
 
 
 
-/* ============ BASIS-VEILIGHEID ============ */
-html, body{ margin:0; width:100%; }
-*, *::before, *::after{ box-sizing:border-box; }
-img, svg, video{ max-width:100%; height:auto; }
-body{ overflow-x:hidden; } /* vangnet tegen horizontale scroll */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style twede pagina  */
+/* Style twede pagina  */
+
+
+.pagina-vacature a:hover {
+  color: rgb(0, 51, 255);
+}
+
+
+/* standaard: onder elkaar (mobiel) */
+.video-tekst-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* nette basis */
+.video-tekst-container h3 { margin: 0 0 8px; }
+.video-tekst-container p  { line-height: 1.6; }
+
+/* video basis */
+.video-tekst-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+}
+
+/* desktop: tekst links, video rechts */
+@media (min-width: 992px) {
+  .video-tekst-container {
+    grid-template-columns: minmax(0, 1fr) 560px; /* links flexibel, rechts vaste videobreedte */
+    column-gap: 40px;
+    align-items: start; /* bovenranden uitlijnen */
+  }
+
+  /* Plaatsing in het grid: h3 en p links; video rechts over beide rijen */
+  .video-tekst-container h3 { grid-column: 1; grid-row: 1; }
+  .video-tekst-container p  { grid-column: 1; grid-row: 2; max-width: 65ch; }
+  .video-tekst-container iframe {
+    grid-column: 2; 
+    grid-row: 1 / span 2;   /* video naast zowel titel als tekst */
+    max-width: 100%;        /* respecteer de 560px kolom */
+  }
+}
+
+
+
+
+/* footer  twede p  *//* footer twede p  */
+/* ===== FOOTER STYLING ===== */
+/* ===== SITE FOOTER ===== */
+.pagina-vacature footer.site-footer {
+  position: relative; /* maakt positionering van pseudo-element mogelijk */
+  background-image: url("https://cdn.askoscholen.nl/www.askoscholen.nl/template/img/asko-visual-footer.jpg"); /* achtergrondfoto */
+  background-size: cover; /* vult hele footer */
+  background-repeat: no-repeat; /* geen herhaling */
+  background-position: center; /* foto gecentreerd */
+  min-height: 260px; /* minimale hoogte van footer */
+  font-size: 15px;
+
+  display: flex; /* gebruikt flexbox voor layout */
+  flex-direction: column; /* stapelt inhoud (iconen boven tekst) */
+  align-items: center; /* centreert horizontaal */
+  justify-content: center; /* centreert verticaal */
+  text-align: center; /* centreert tekst */
+  padding: 24px; /* gelijkmatige binnenruimte rondom */
+}
+
+/* ===== LICHTE TRANSPARANTE BAND ONDERIN ===== */
+.pagina-vacature footer.site-footer::before {
+  content: ""; /* pseudo-element voor overlay */
+  position: absolute; /* positioneert overlay over onderkant */
+  left: 0; /* bedekt volle breedte */
+  right: 0;
+  bottom: 0;
+  height: 170px; /* hoogte van de lichtere onderband */
+  background-color: rgba(255, 255, 255, 0.6); /* transparante witte overlay */
+  z-index: 1; /* ligt tussen achtergrond en inhoud */
+}
+
+/* ===== ALGEMENE STIJL BINNEN FOOTER ===== */
+.pagina-vacature footer.site-footer > * {
+  position: relative; /* houdt elementen boven de overlay */
+  z-index: 2; /* zorgt dat tekst en iconen zichtbaar zijn */
+  color: #000; /* zwarte tekst voor contrast */
+}
+
+/* ===== SOCIAL ICONS BLOK ===== */
+.pagina-vacature .footer-social {
+  display: flex; /* zet de iconen naast elkaar */
+  justify-content: center; /* horizontaal centreren */
+  align-items: center; /* verticaal uitlijnen */
+  gap: 16px; /* ruimte tussen de iconen */
+  margin-bottom: 16px; /* ruimte tussen iconen en tekst */
+}
+
+/* ===== INDIVIDUELE SOCIALE ICONEN ===== */
+.pagina-vacature .footer-social .social-link {
+  width: 56px; /* vaste breedte */
+  height: 56px; /* vaste hoogte */
+  border-radius: 50%; /* ronde knoppen */
+  background: #fff; /* witte achtergrond */
+  display: inline-flex; /* maakt centrering binnen elke knop mogelijk */
+  align-items: center; /* icoon verticaal centreren */
+  justify-content: center; /* icoon horizontaal centreren */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* zachte schaduw */
+  text-decoration: none; /* verwijdert onderstreping bij links */
+}
+
+/* ===== GROOTTE VAN SVG ICONEN ===== */
+.pagina-vacature .footer-social svg {
+  width: 28px; /* breedte van icoon */
+  height: 28px; /* hoogte van icoon */
+  display: block; /* voorkomt extra witruimte onder SVG */
+}
+
+
+/* ===== TEKST BLOK IN FOOTER ===== */
+.pagina-vacature footer.site-footer p {
+  margin: 0; /* verwijdert standaard witruimte */
+  padding: 8px 20px; /* wat ruimte rondom tekst */
+  text-align: center; /* horizontale centrering van tekst */
+}
+
+/* ===== RESPONSIVE OP MOBIEL ===== */
+@media (max-width: 480px) {
+  .pagina-vacature .footer-social .social-link {
+    width: 48px;  /* kleinere cirkels voor mobiel */
+    height: 48px;
+  }
+
+  .pagina-vacature .footer-social svg {
+    width: 24px;  /* kleinere iconen op mobiel */
+    height: 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Kaartenpagina 2 */
+/*  Algemene sectieopmaak */
+.eerste-kaarten-2pagina {
+  position: relative; /* basis voor pseudo-element (achtergrond) */
+  z-index: 1; /* zorgt dat content boven achtergrond ligt */
+  max-width: 1200px; /* maximale breedte van de sectie */
+  margin: 30px auto; /* centreert de sectie horizontaal met marge boven/onder */
+  padding: 20px 10px; /* binnenruimte rondom inhoud */
+  min-height: 350px; /* minimale hoogte van de sectie */
+}
+
+/* Achtergrondafbeelding bovenin, responsief in hoogte */
+.eerste-kaarten-2pagina::before {
+  content: ""; /* maakt pseudo-element zichtbaar */
+  position: absolute; /* positioneert los van content */
+  top: 0; /* bovenaan de sectie */
+  left: 50%; /* centreert horizontaal */
+  transform: translateX(-50%); /* corrigeert centrering */
+  width: 100vw; /* volledige viewportbreedte */
+  height: clamp(180px, 28vw, 350px); /* hoogte schaalt met schermbreedte */
+  background: url('../images/blue-color-foto.jpg') no-repeat center center / cover; /* achtergrondafbeelding */
+  z-index: -1; /* plaatst achter de tekst */
+}
+
+/* ===================================================== */
+/*  GRID LAYOUT: grote linkerkaart + kleine rechterkaart */
+/* ===================================================== */
+.eerste-kaarten-2pagina > ul {
+  display: grid; /* gebruikt grid voor layout */
+  grid-template-columns: minmax(0, 1fr) min(32vw, 360px); /* linkerkolom flexibel, rechter max 360px */
+  gap: clamp(16px, 2.2vw, 30px); /* ruimte tussen de kaarten, schaalt mee */
+  list-style: none; /* verwijdert standaard bullets */
+  padding: 0; /* geen binnenruimte */
+  margin: 0; /* geen buitenmarge */
+  align-items: start; /* voorkomt dat sticky-kaart uitrekt */
+  justify-content: stretch; /* beide kolommen vullen de breedte */
+}
+
+/*  Kaarten algemeen */
+.eerste-kaarten-2pagina > ul > li {
+  background: #fff; /* witte achtergrond */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* subtiele schaduw */
+  border-radius: 12px; /* afgeronde hoeken */
+  padding: clamp(16px, 2vw, 28px); /* responsieve binnenruimte */
+  display: block; /* normale block-weergave */
+  box-sizing: border-box; /* padding telt mee in breedte */
+  margin: 0; /* grid regelt afstand */
+}
+
+/* 🔹 Rechter kaart (specificaties) sticky op desktop/tablet */
+.eerste-kaarten-2pagina > ul > li:last-child {
+  position: sticky; /* blijft plakken bij scrollen */
+  top: 24px; /* afstand tot bovenkant scherm */
+  align-self: start; /* blijft bovenaan grid */
+  height: auto; /* hoogte past zich aan inhoud aan */
+}
+
+/* ===================================================== */
+/* 🔹 Typografie en inhoud */
+/* ===================================================== */
+.eerste-kaarten-2pagina h3 {
+  margin: 0 0 12px; /* marge onder de titel */
+  font-size: clamp(20px, 2.2vw, 26px); /* responsieve tekstgrootte */
+  color: #222; /* donkergrijze tekstkleur */
+}
+
+.eerste-kaarten-2pagina p {
+  margin-bottom: 12px; /* ruimte onder paragrafen */
+  line-height: 1.6; /* regelhoogte voor leesbaarheid */
+  color: #333; /* tekstkleur */
+}
+
+/*  De "Delen" rij */
+.delen-label-row {
+  display: flex; /* zet label + iconen naast elkaar */
+  align-items: center; /* verticaal centreren */
+  gap: 10px; /* ruimte tussen label en iconen */
+  margin: 8px 0 16px; /* marge boven en onder */
+  font-weight: 500; /* iets vettere tekst */
+}
+
+.eerste-kaarten-2pagina .deel-iconen {
+  display: flex; /* iconen naast elkaar */
+  gap: 12px; /* ruimte tussen iconen */
+  align-items: center; /* verticaal centreren */
+  flex-wrap: wrap; /* op kleine schermen breken iconen af */
+}
+
+.eerste-kaarten-2pagina .deel-iconen a {
+  text-decoration: none; /* geen onderstreping */
+  margin: 0;
+  padding: 0;
+  display: inline-flex; /* zorgt dat SVG netjes uitlijnt */
+  vertical-align: middle; /* uitlijning in tekstlijn */
+}
+
+.eerste-kaarten-2pagina .deel-iconen a svg {
+  display: block; /* verwijdert witruimte */
+  width: 20px; /* icoonbreedte */
+  height: 20px; /* icoonhoogte */
+}
+
+/*  Knopstijl */
+.knoppenTwedeP {
+  background-color: #007bff; /* blauwe knopkleur */
+  color: white; /* witte tekst */
+  text-align: center; /* tekst centreren */
+  padding: 10px 16px; /* binnenruimte */
+  border-radius: 6px; /* afgeronde hoeken */
+  text-decoration: none; /* geen onderstreping */
+  font-weight: 600; /* vette tekst */
+  margin-top: 20px; /* ruimte boven knop */
+  transition: background-color 0.2s ease; /* soepele hoveranimatie */
+  align-self: flex-start; /* knop links uitlijnen in flex */
+}
+
+.knoppenTwedeP:hover {
+  background-color: #0056b3; /* donkerder blauw bij hover */
+}
+
+/*  Kleine rechterkaart (specificaties) details */
+.eerste-kaarten-2pagina > ul > li:last-child h3 {
+  margin-bottom: 16px; /* ruimte onder titel */
+  font-size: clamp(18px, 1.9vw, 22px); /* responsieve tekstgrootte */
+  color: #111; /* donkere titel */
+}
+
+.eerste-kaarten-2pagina > ul > li:last-child h5 {
+  margin: 12px 0 4px; /* marges tussen subtitels */
+  font-size: 16px; /* vaste grootte voor subtitels */
+  color: #444; /* grijs */
+}
+
+.eerste-kaarten-2pagina > ul > li:last-child strong {
+  display: block; /* op eigen regel */
+  margin-bottom: 8px; /* ruimte onder */
+  color: #000; /* zwarte tekst */
+}
+
+/* ===================================================== */
+/* responsiveness */
+/* ===================================================== */
+
+/* Medium (tot ~1024px): iets smallere sidebar */
+@media (max-width: 1024px) {
+  .eerste-kaarten-2pagina > ul {
+    grid-template-columns: minmax(0, 1fr) min(40vw, 320px); /* rechterkolom smaller */
+  }
+}
+
+/* Tablet & mobiel (tot ~768px): één kolom, sticky uit, grotere tappables */
+@media (max-width: 768px) {
+  .eerste-kaarten-2pagina {
+    margin: 20px auto; /* minder marge */
+    padding: 16px 10px; /* kleinere padding */
+  }
+
+  .eerste-kaarten-2pagina::before {
+    height: clamp(140px, 26vw, 220px); /* lagere achtergrond */
+  }
+
+  .eerste-kaarten-2pagina > ul {
+    grid-template-columns: 1fr; /* kaarten onder elkaar */
+    gap: 16px; /* minder ruimte ertussen */
+  }
+
+  .eerste-kaarten-2pagina > ul > li {
+    padding: 16px; /* minder binnenruimte */
+    border-radius: 10px; /* kleinere afronding */
+  }
+
+  .eerste-kaarten-2pagina > ul > li:last-child {
+    position: static; /* sticky uitgeschakeld */
+    margin-top: 4px; /* kleine ruimte boven */
+  }
+
+  .eerste-kaarten-2pagina h3 {
+    font-size: 20px; /* kleinere titels */
+  }
+
+  .eerste-kaarten-2pagina p {
+    font-size: 15px; /* kleinere paragrafen */
+  }
+
+  .deel-iconen a svg {
+    width: 26px; /* kleinere iconen */
+    height: 26px;
+  }
+
+  .knoppenTwedeP {
+    width: 100%; /* knop vult hele breedte */
+    padding: 12px 16px; /* iets groter voor aanraken */
+    border-radius: 8px; /* ronder op mobiel */
+  }
+}
+
+/* Klein (tot ~480px): compactere layout */
+@media (max-width: 480px) {
+  .eerste-kaarten-2pagina > ul {
+    gap: 12px; /* nog minder ruimte ertussen */
+  }
+
+  .eerste-kaarten-2pagina > ul > li {
+    padding: 14px; /* compacte binnenruimte */
+  }
+
+  .eerste-kaarten-2pagina h3 {
+    font-size: 18px; /* kleinere titels */
+  }
+
+  .eerste-kaarten-2pagina p {
+    font-size: 14px; /* kleinere tekst */
+  }
+
+  .deel-iconen a svg {
+    width: 24px; /* nog kleinere iconen */
+    height: 24px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.twede-kaarten-2pagina {
+  position: relative; /* voor pseudo-elementen */
+  z-index: 1;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px 10px;
+  min-height: 350px;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: #333;
+}
+
+.twede-kaarten-2pagina ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.twede-kaarten-2pagina li {
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 9px;
+  padding: 24px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column; /* zorgt dat elementen binnen li onder elkaar staan */
+  justify-content: center; /* verticale centrering */
+  align-items: center;    /* horizontale centrering */
+  box-sizing: border-box;
+  margin: 10px;
+  text-align: center; /* tekst centreren */
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #222;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Ruimte en centrering voor directe kinderen in li */
+.twede-kaarten-2pagina li > * {
+  width: 100%;
+  margin: 0 0 15px 0; /* gelijke ruimte onder elk element */
+  text-align: center;
+}
+
+.twede-kaarten-2pagina li > *:last-child {
+  margin-bottom: 0; /* laatste element geen marge onder */
+}
+
+.twede-kaarten-2pagina li:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.twede-kaarten-2pagina li img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* ronde afbeelding */
+  object-fit: cover;
+  margin-top: 15px;
+}
+
+
+/* Responsive aanpassingen */
+@media (max-width: 900px) {
+  .twede-kaarten-2pagina li {
+    flex: 1 1 45%;
+    max-width: 45%;
+    margin: 10px 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .twede-kaarten-2pagina li {
+    flex: 1 1 90%;
+    max-width: 90%;
+    margin: 10px auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+address {
+  font-style: normal; /* voorkomt cursief */
+  text-align: center; /* tekens centreren als gewenst */
+  margin: 0; /* voorkom extra marges */
+  padding: 0; /* voorkom extra padding */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.derde-kaarten-2pagina {
+  background-color: #e6f4fa;
+  max-width: 900px;
+  padding: 40px 70px;
+  margin: 30px auto 30px 30px; /* minder marge links om container meer links te plaatsen */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+}
+
+.derde-kaarten-2pagina img {
+  width: 450px; /* maak de afbeelding groter */
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* media query voor kleine schermen */
+@media (max-width: 600px) {
+  .derde-kaarten-2pagina {
+    max-width: 95%; /* bijna volle breedte scherm */
+    padding: 20px 15px; /* mindere padding */
+    margin-left: 10px; /* minder marge links */
+  }
+  .derde-kaarten-2pagina img {
+    width: 100%; /* afbeelding past aan breedte */
+    max-width: 300px; /* maximale grootte afbeelding */
+  }
+}
+
+
+
+
+
+
+.vierde-kaarten-2pagina ul {
+  display: flex; /* zet de ul om in een flex container */
+  gap: 30px; /* ruimte tussen flex-items */
+  padding: 0; /* haalt standaard padding ul weg */
+  margin: 0; /* haalt standaard margin ul weg */
+  list-style: none; /* verwijdert bullets bij li */
+  flex-wrap: wrap; /* items mogen doorlopen naar nieuwe regel */
+  justify-content: flex-start; /* items links uitlijnen */
+}
+
+.vierde-kaarten-2pagina li:first-child {
+  flex: 0 0 200px; /* vaste breedte van 200px voor eerste blok */
+  height: 400px; /* vaste hoogte van 400px */
+  display: flex; /* blok om inhoud te centreren */
+  flex-direction: column; /* inhoud onder elkaar */
+  justify-content: center; /* inhoud verticaal centreren */
+  align-items: center; /* inhoud horizontaal centreren */
+  background-color: #ffffff; /* lichte achtergrond kleur */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* lichte schaduw */
+  margin-bottom: 20px; /* ruimte onder blok */
+  padding: 30px; /* vergroot padding voor meer ruimte binnen */
+  box-sizing: border-box; /* padding inbegrepen in breedte */
+  text-align: center;           /* tekst ook gecentreerd */
+  font-size: 1rem;              /* normale tekstgrootte */
+  max-width: 100%;              /* voorkom overflow horizontaal */
+  word-wrap: break-word;        /* breek lange woorden indien nodig */
+
+  padding: 30px; /* ruimte binnen container */
+  margin: 40px 20px 40px 20px; /* marge rondom (top rechts onder links) */
+}
+
+
+.vierde-kaarten-2pagina li:nth-child(2) {
+  flex: 1; /* tweede blok neemt resterende breedte */
+  min-width: 300px; /* minimale breedte second blok */
+  padding: 30px; /* ruimte binnen container */
+  background-color: #fff; /* witte achtergrond */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* lichte schaduw */
+  margin-bottom: 20px; /* ruimte onder blok */
+  box-sizing: border-box; /* padding binnen breedte */
+  text-align: center;           /* tekst ook gecentreerd */
+  font-size: 1.5rem;            /* vergroot tekst */
+
+  display: flex;                /* maak flex container */
+  flex-direction: column;       /* inhoud onder elkaar */
+  justify-content: center;      /* verticale centrering */
+  align-items: center;          /* horizontale centrering */
+
+  padding: 30px; /* ruimte binnen container */
+  margin: 40px 20px 40px 20px; /* marge rondom (top rechts onder links) */
+}
+
+
+
+
+
+
+
+.vierde-kaarten-2pagina {
+  padding-left: 0; /* voorkom padding op de container (indien nodig) */
+}
+
+.vierde-kaarten-2pagina ul {
+  padding-left: 0; /* voorkom padding op ul */
+  margin-left: 0;  /* voorkom margin op ul */
+}
+.vierde-kaarten-2pagina li:nth-child(1),
+.vierde-kaarten-2pagina li:nth-child(2) {
+  position: relative; /* nodig voor pseudo-element positionering */
+  padding-left: 50px; /* ruimte voor de streep links */
+  margin-left: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* voor de verticale kluer streep Pseudo-element */
+.vierde-kaarten-2pagina li:nth-child(1)::before,
+.vierde-kaarten-2pagina li:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  left: 0; /* helemaal links */
+  top: 0;
+  bottom: 0;
+  width: 12px; /* breedte streepje */
+  margin-left: -9px; /* schuift over de rand van li */
+  background-image: url("https://www.askoscholen.nl/templates/buro26/img/regenboog.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsief: stapelen op smalle schermen */
+@media (max-width: 600px) {
+  .vierde-kaarten-2pagina ul {
+    flex-direction: column; /* items onder elkaar */
+    gap: 20px; /* ruimte tussen items */
+    padding-left: 10px; /* ruimte binnen links */
+    padding-right: 10px; /* ruimte binnen rechts */
+    margin-left: 0; /* voorkom overflow door margin */
+  }
+  .vierde-kaarten-2pagina li:first-child,
+  .vierde-kaarten-2pagina li:nth-child(2) {
+    flex: none; /* vaste grootte */
+    width: 100%; /* volledige breedte */
+    height: auto; /* automatische hoogte */
+    font-size: 1.3rem; /* iets kleinere tekst */
+    padding: 15px; /* wat minder padding */
+    box-sizing: border-box;
+    word-wrap: break-word; /* wrap lange woorden */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   ===== COMPONENTEN: KNOPPEN/LINKS =====
+   ===================================== */
+/* Algeme link-knoppen */
+.link-knoppen {
+  display: inline-block;
+  margin: 1.5rem auto 1.5rem 0; /* lucht erboven/onder; links uitgelijnd */
+  padding: 10px 20px;
+  border: 3px solid rgb(2,2,84);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 9999px;
+  transition: .3s;
+}
+
+.link-knoppen:hover { background-color: darkblue; color: #fff; }
+
+/* Tweede pagina knoppen */
+.knoppenTwedeP {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: #ffa200; /* oranje knop */
+  color: #ffffff;              /* zwarte tekst */
+  border-radius: 300px;     /* pilvorm */
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.knoppenTwedeP:hover { background-color: #ffc249; } /* lichtblauw hover */
+
+
+/* =====================================
+   ===== LAYOUT: FOOTER & LIJSTEN =====
+   ===================================== */
+/* ======= FOOTER ======= */
+footer {
+  background-color: hsl(40, 7%, 92%); /* donkerpaars */
+  color: #000000;           /* witte tekst */
+  font-size: 80%;
+  padding: 1.5rem;          /* wat binnenruimte voor luchtigheid */
+  text-align: center;       /* tekst netjes in het midden */
+  
+}
+
+/* =======  FOOTER eerste p ======= */
+
+
+.flex-footer-list li ul {
+  list-style-type: none; /* haalt alle bolletjes weg */
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* =====  footer-sectie ===== */
+
+/* het witte vlak in footer */
+.flex-footer-list{
+  background: #fff;
+  max-width: 1200px;          /* nette breedte */
+  margin: 2.5rem auto;        /* lucht rondom */
+  
+  border: 1px solid #eee;     /* subtiele rand */
+  box-shadow: 0 6px 20px rgba(0,0,0,.06); /* lichte schaduw */
+}
+
+/* binnenruimte + kolomraster */
+.flex-footer-list > ul{
+  display: grid;
+  grid-template-columns: 1fr; /* mobiel: 1 kolom */
+  gap: 2rem 2rem;
+  list-style: none;
+  padding: 2rem 1.5rem;
+  margin: 0;
+}
+
+/* titels en items strakker */
+.flex-footer-list h3{
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  line-height: 1.2;
+  color: #222;
+}
+
+.flex-footer-list li > ul{
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: .75rem;
+}
+
+.flex-footer-list li > ul li{
+  color: #333;
+  line-height: 1.5;
+}
+
+/* datum iets lichter en op eigen regel */
+.flex-footer-list time{
+  display: block;
+  font-size: .95rem;
+  color: #8a8f98;
+  margin-bottom: .15rem;
+}
+
+/* pijltjes alleen in de derde kolom (Lees meer over) */
+.flex-footer-list li:nth-of-type(3) > ul li{
+  position: relative;
+  padding-left: 1.1rem;
+}
+.flex-footer-list li:nth-of-type(3) > ul li::before{
+  content: "›";
+  position: absolute;
+  left: 0; top: 0;
+  color: #666;
+}
+
+/* grotere schermen: 2 → 3 kolommen */
+@media (min-width: 720px){
+  .flex-footer-list > ul{ grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 1024px){
+  .flex-footer-list > ul{ grid-template-columns: 1fr 1fr 1fr; }
+}
+
+
+
+
+
 
 /* Centreer hoofdblokken + zijkant-padding */
-main, footer, section[aria-labelledby="asko"], .flex-footer-list{
+main, footer, section[aria-labelledby="asko"], .flex-footer-list {
   max-width: 1150px;         /* kies 720–960px naar smaak */
   margin-inline: auto;
   padding-inline: 16px;
 }
 
-/* ============ HEADER FIX ============ */
-/* het logo zit in <a>, dus dat element krijgt de grid-area */
-header{
-  display:grid;
-  grid-template-columns: 1fr auto auto;   /* mobiel: logo | btn1 | btn2 */
-  grid-template-areas: "logo btn1 btn2";
-  align-items:center;
-  gap:12px;
-  padding:12px 16px;
-  background:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,.05);
-}
-header > a{ grid-area: logo; }
-header > a img{ height:40px; width:auto; display:block; }
-header > button:first-of-type{ grid-area: btn1; }
-header > button:last-of-type { grid-area: btn2; }
 
-/* Nav standaard verbergen op small screens */
-header nav{ display:none; }
+/* =====================================
+   ===== MEDIA QUERIES (alle samen) =====
+   ===================================== */
 
-/* Zoekveld onder de rij, full width */
-header input[type="search"]{
-  grid-column:1 / -1;
-  margin-top:12px;
-  width:100%; height:44px;
-  border:1px solid #ddd; border-radius:999px;
-  background:#fafafa;
-  padding:0 44px 0 14px;
-  font-size:1rem;
-  box-shadow:0 1px 4px rgba(0,0,0,.05);
-}
 
 /* Desktop/tablet: nav tonen en header uitbreiden */
-@media (min-width: 768px){
-  header{
-    grid-template-columns:auto 1fr auto auto; /* logo | nav | btn1 | btn2 */
-    grid-template-areas:"logo nav btn1 btn2";
+@media (min-width: 768px) {
+  header {
+    grid-template-columns: auto 1fr auto auto; /* logo | nav | btn1 | btn2 */
+    grid-template-areas: "logo nav btn1 btn2";
   }
-  header nav{ display:block; }
-  header nav ul{
-    display:flex; gap:16px; list-style:none; margin:0; padding:0;
-  }
-  header nav a{
-    text-decoration:none; color:#111; font-size:.95rem;
+  header nav { display: block; }
+  header nav ul { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; }
+  header nav a { text-decoration: none; color: #111; font-size: .95rem; }
+}
+
+/* Grotere schermen: kaarten naast elkaar */
+@media (min-width: 768px) {
+  .kaart-container { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .kaart { max-width: 300px; }
+}
+
+/* Responsief: activiteiten spacing */
+@media (min-width: 768px) {
+  section.activiteiten li > p:last-of-type { padding: 1.25rem 1.5rem; /* meer ruimte op grotere schermen */ }
+  section.activiteiten li > p:first-of-type { flex: 0 0 120px; /* iets bredere linkerkolom */ }
+}
+
+/* Kaartenpagina 2 – mobiel: full width */
+@media (max-width: 450px) {
+  .kaarten-2e-pagina li { flex: 1 1 100%; max-width: 100%; }
+}
+
+/* MAIN -NAV fix voor smalle schermen: stapelen i.p.v. 2 kolommen */
+@media (max-width: 560px) {
+  main nav { grid-template-columns: 1fr !important; height: auto; gap: 1rem; overflow: hidden; }
+  
+}
+
+/* styl voor die iconnen om zichtbaar/of niet te maken */
+/* Hamburgermenu alleen zichtbaar op mobiel (max 419px) */
+@media (max-width: 419px) {
+  button[aria-label="Menu openen"] { display: inline-block; }
+  button[aria-label="zoek icoon"] { display: none; }
+}
+
+/* Zoek icoon alleen zichtbaar vanaf tablets en groter (420px en breder) */
+@media (min-width: 420px) {
+  button[aria-label="Menu openen"] { display: none; }
+  button[aria-label="zoek icoon"] { display: inline-block; }
+}
+
+
+
+
+
+/* standaard: tonen (mobiel) */
+header input[type="search"] {
+  display: block;
+}
+
+/* verbergen op grotere schermen */
+@media (min-width: 420px) {
+  header input[type="search"] {
+    display: none;
   }
 }
 
-/* ============ MAIN -NAV FIX ============ */
-/* voorkom krappe layout op klein scherm: stapelen i.p.v. 2 kolommen */
-@media (max-width: 560px){
-  main nav{
-    grid-template-columns: 1fr !important; /* force single column */
-    height:auto;
-    gap:1rem;
-    overflow:hidden; /* extra zekerheid */
+
+
+/* --- MOBIEL: basis --- */
+
+/* Standaard dicht op mobiel */
+#hoofdmenu {
+  display: none;               /* <- verbergt het menu als starttoestand */
+}
+
+/* Open na klik (JS zet .is-open én aria-expanded op de knop) */
+#hoofdmenu.is-open {
+  display: block;              /* <- maakt het menu zichtbaar */
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  #hoofdmenu {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height .25s ease, opacity .2s ease;
+  }
+  #hoofdmenu.is-open {
+    max-height: 400px; /* pas aan indien nodig */
+    opacity: 1;
   }
 }
 
-/* ============ H2 ACHTERGROND ============ */
-h2{
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+/* --- DESKTOP --- */
+@media (min-width: 900px) {
+  #hoofdmenu {
+    display: block;   /* altijd zichtbaar op desktop */
+    max-height: none;
+    opacity: 1;
+  }
+  #menu-btn {
+    display: none;    /* hamburger verbergen op desktop */
+  }
 }
 
-/* ============ KNOPPEN DUPLICATE CLEANUP ============ */
-/*  */
-.link-knoppen{
-  display:inline-block;
-  margin:1.5rem auto 1.5rem 0; /* lucht erboven/onder; links uitgelijnd */
-  padding:10px 20px;
-  border:3px solid rgb(2,2,84);
-  color:rgb(2,2,84);
-  text-decoration:none;
-  font-weight:bold;
-  border-radius:9999px;
-  transition:.3s;
+/* --- ICONEN TOGGLE  --- */
+/* standaard: alleen hamburger tonen */
+#menu-btn .icon-close { display: none; }
+/* als menu open is: X tonen, hamburger verbergen */
+#menu-btn[aria-expanded="true"] .icon-menu { display: none; }
+#menu-btn[aria-expanded="true"] .icon-close { display: inline; }
+
+
+
+/* styl voor werkend menu */
+@media (max-width: 899px) { /* geldt voor schermen kleiner dan 900px */
+  /* Paneel */
+  #hoofdmenu {
+    position: fixed; /* vast aan scherm */
+    left: 0; /* tegen linker kant */
+    right: 0; /* tegen rechter kant */
+    top: 72px; /* iets onder de header */
+    background: var(--color-surface, #fff); /* witte achtergrond */
+    color: var(--color-text, #111); /* zwarte tekst */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* lichte schaduw */
+    max-height: 0; /* menu dicht */
+    overflow: hidden; /* inhoud verbergen */
+    opacity: 0; /* onzichtbaar */
+    visibility: hidden; /* niet zichtbaar voor schermlezer */
+    transform: translateY(-6px); /* iets omhoog (voor animatie) */
+    transition: /* animatie-effect bij openen/sluiten */
+      max-height 0.35s ease,
+      opacity 0.2s ease,
+      transform 0.25s ease,
+      visibility 0s linear 0.35s;
+    z-index: 1000; /* boven andere lagen */
+  }
+
+  /* Open menu */
+  #hoofdmenu.is-open {
+    max-height: 85vh; /* open hoogte */
+    opacity: 1; /* zichtbaar */
+    visibility: visible; /* zichtbaar voor alles */
+    transform: translateY(0); /* normale positie */
+    transition: /* zelfde animatie maar direct zichtbaar */
+      max-height 0.35s ease,
+      opacity 0.2s ease,
+      transform 0.25s ease,
+      visibility 0s;
+  }
+
+  /* Lijst */
+  #hoofdmenu ul {
+    list-style: none; /* geen bolletjes */
+    margin: 0; /* geen buitenruimte */
+    padding: 0; /* geen binnenruimte */
+  }
+
+  #hoofdmenu li {
+    margin: 0; /* geen afstand tussen items */
+  }
+
+  #hoofdmenu a {
+    display: block; /* hele rij klikbaar */
+    padding: 14px 16px; /* ruimte rond tekst */
+    text-decoration: none; /* geen onderlijn */
+    color: inherit; /* gebruikt tekstkleur van menu */
+    font-weight: 600; /* halfvet */
+    transition: background-color 0.25s ease, color 0.25s ease; /* soepele hover */
+  }
+
+  /* Hover: oranje achtergrond, donkere tekst */
+  #hoofdmenu a:hover,
+  #hoofdmenu a:focus-visible {
+    background-color: #fcde70; /* oranje kleur */
+    color: #050505; /* bijna zwart voor tekst */
+  }
+
+  header {
+    position: relative; /* header boven menu */
+    z-index: 1100; /* altijd bovenaan */
+  }
 }
-.link-knoppen:hover{ background-color:darkblue; color:#fff; }
+
+/* Desktop: menu zichtbaar */
+@media (min-width: 900px) { /* voor grote schermen */
+  #hoofdmenu {
+    position: static; /* normale plaats in layout */
+    max-height: none; /* geen hoogtebeperking */
+    opacity: 1; /* altijd zichtbaar */
+    visibility: visible; /* niet verborgen */
+    transform: none; /* geen verschuiving */
+    
+  }
+
+  #hoofdmenu .menu-search {
+    display: none; /* zoekbalk verbergen op desktop */
+  }
+}
+
+/* Verwijder paarse outline rond links bij hover/focus */
+#hoofdmenu a:focus,
+#hoofdmenu a:focus-visible,
+#hoofdmenu a:hover {
+  outline: none !important; /* geen paars rand */
+  
+}
+
+
+
+
+
 
 

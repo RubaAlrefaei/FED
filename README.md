@@ -46,6 +46,8 @@ responsive – ik wil oefenen om mijn website mobile-first te bouwen en daarna u
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
   <img src="images/miro-screen2.jpg" width="375px" alt="omschrijving van de pagina">
+
+  
   
 </details>
 
@@ -88,6 +90,7 @@ De site is visueel duidelijk, maar voor screenreader-gebruikers erg lastig te be
 - Bij afbeeldingen hoorde ik geen beschrijvende alt-teksten.   
 - Het contrast tussen tekst en achtergrond wil ik nog extra testen.
 - Contrast niet gecheckt Teksten op gekleurde achtergronden kunnen er visueel oké uitzien maar onvoldoende contrast hebben  
+<img src="readme-images/test-fed.jpg" width="375px" alt="breakdown van nog een dynamisch deel">
 
 
 </details>
@@ -110,6 +113,7 @@ De site is visueel duidelijk, maar voor screenreader-gebruikers erg lastig te be
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van nog een dynamisch deel">
 
 </details>
+
 
 
 
@@ -296,5 +300,7 @@ Ik moet nog screenshots toevoegen van mijn breakdownschets en de toegankelijkhei
   1. bron 1
   2. bron 2
   3. BrowserStack. (2025, juni 9). Best Practices for Responsive Web Design: Tips to Improve UX & Performance. BrowserStack Blog. Geraadpleegd op 24 september 2025, van https://www.browserstack.com/guide/best-practice-responsive-design
+
+  4.Trigo, A. (2025, juni 4). 10+ hamburger menu examples [CSS only]. Geraadpleegd op 22 oktober 2025, van https://alvarotrigo.com/blog/hamburger-menu-css/
 
 </details>
