@@ -53,6 +53,15 @@
 
   <!-- ===== MAIN ===== -->
   <main id="inhoud">
+
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb"> <!-- aria-label="Breadcrumb" = helpt screenreaders begrijpen dat dit een broodkruimel-navigatie is -->
+       <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/vacatures">Vacatures</a></li>
+        <li aria-current="page">Leerkracht groep 3 of 4</li>
+       </ol>
+    </nav>
+
     
     <!-- Sectie: Vacature -->
     <section class="eerste-kaarten-2pagina">
@@ -65,14 +74,16 @@
         
         <li> 
 
-          <h3>Communicatiespecialist</h3>
           
+          <h2 class="kaart-titel">Communicatiespecialist</h2>
+
           
+        
           <strong class="delen-label-row">
         <span>Delen:</span>
         <span class="deel-iconen">
         <!-- Facebook delen link -->
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://jouwsite.nl/" target="_blank" rel="noopener" aria-label="Delen via Facebook">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://jouwsite.nl/" target="_blank" rel="noopener" aria-label="Delen via Facebook">
       <svg enable-background="new 0 0 32 32" height="32px" viewBox="0 0 32 32" width="32px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
         <g>
           <path d="M32,30c0,1.104-0.896,2-2,2H2c-1.104,0-2-0.896-2-2V2c0-1.104,0.896-2,2-2h28c1.104,0,2,0.896,2,2V30z" fill="#3B5998"/>
@@ -145,17 +156,30 @@
           <a href="#" class="knoppenTwedeP">Direct solliciteren</a>
         </li>
 
-        <li> <!-- twede kaart in eerste deel -->
-          <h3>Specificaties</h3>
-          <h5>Functie</h5>
-          <strong>Leerkracht groep 3 of 4</strong>
-          Periode
-          <strong>per 1 november (zwangerschapsvervanging)</strong>
-          <h5>Werktijdfactor (fte)</h5>
-          <strong>0,4 - 0,8</strong>
-          <h5>Salaris</h5>
-          <strong>LB</strong>
-        </li>
+        <li>
+         <!-- Titel van de kaart eerste kaart twede deel -->
+        <h2 class="kaart-titel">Specificaties</h2>
+
+        
+    <dl class="specificaties-lijst">
+    <!-- Term (label) -->
+    <dt>Functie</dt>
+    <!-- Beschrijving (waarde) -->
+    <dd>Leerkracht groep 3 of 4</dd>
+
+    <dt>Periode</dt>
+    <dd>per 1 november (zwangerschapsvervanging)</dd>
+
+    <dt>Werktijdfactor (fte)</dt>
+    <dd>0,4 - 0,8</dd>
+
+    <dt>Salaris</dt>
+    <dd>LB</dd>
+    </dl>
+  </li>
+
+
+
       </ul>
     </section>
 
@@ -168,8 +192,11 @@
     
 
     <!-- Sectie: Schoolinfo -->
-    <section class="video-tekst-container">
-      <h3>Basisschool De Achthoek</h3>
+    <section class="video-tekst-container"> 
+      <!-- Titel van de school (semantisch: h2) -->
+    <h2 class="school-titel">Basisschool De Achthoek</h2>
+
+      
       <p>
         Op De Achthoek is leren leuk. Er is een rijke, krachtige leeromgeving waarin kinderen worden ondersteund en uitgedaagd te ontdekken, te leren en te doen. Binnen de veilige leeromgeving van de school bereiden wij hen voor op hun toekomst als wereldburgers. Dit doen we vanuit de visie van Ontwikkelings Gericht Onderwijs (OGO). Leerlingen krijgen de ruimte om hun persoonlijkheid te ontwikkelen en hun talenten te benutten. Samen met ouders geven we hen een stevige basis.   Het grote enthousiasme waarmee het team zich inzet om goed en uitdagend onderwijs te bieden is één van de...
         <a href="#">Alles over deze school</a>
@@ -185,35 +212,74 @@
 
     <!-- twede deel van karten ASKO Bestuursbureau bevat conact en locatie-->
     <section class="twede-kaarten-2pagina">
-      <ul>
-  <li>
-    <h4>Locatiegegevens</h4>
-    <address>
-      <strong>Adres</strong><br>
-      Baron G.A. Tindalplein 12<br>
-      1019 TJ Amsterdam<br>
-      Oostelijke Handelskade 8a<br>
-      1019BM Amsterdam
-    </address>
-  </li>
+  <ul>
+    <!-- Kaart 1: Locatie -->
+    <li>
+      <!-- Titel van de kaart -->
+      <h2 class="kaart-titel">Locatiegegevens</h2>
 
-  <li>
-    <h4>Contact</h4>
-    <address>
-      Telefoon: <a href="tel:+31204185562">020 - 418 55 62</a><br>
-      E-mail: <a href="mailto:info@deschool.nl">E-mail de school</a><br>
-      Website: <a href="https://www.deschool.nl" target="_blank" rel="noopener">Bezoek schoolwebsite</a>
-    </address>
-  </li>
+      <!-- Adres is semantisch juist met <address> -->
+      <address class="kaart-address">
+        <p><span class="label">Adres</span></p>
+        <p>
+          Baron G.A. Tindalplein 12<br>
+          1019 TJ Amsterdam
+        </p>
+        <p>
+          Oostelijke Handelskade 8a<br>
+          1019BM Amsterdam
+        </p>
+      </address>
+    </li>
 
-  <li>
-    <h4>Contactpersoon</h4>
-    <p>Directeur Jessica Mulder</p>
-    <img src="https://www.askoscholen.nl/images/www.askoscholen.nl/Fotos_Directie_Scholen/Jessica_Mulder_directeur_def.jpg" alt="[translate:portretfoto van Jessica Mulder, directeur]">
-  </li>
-</ul>
+    <!-- Kaart 2: Contact -->
+    <li>
+      <h2 class="kaart-titel">Contact</h2>
 
-    </section>
+       <!-- label → waarde = description list --><!-- <dl> = definition list -->
+       <!-- <dt> = term (label, bv. "E-mail") -->
+       <!-- <dd> = description (uitleg of waarde) -->
+
+      <dl class="contact-lijst">
+        <dt>Telefoon</dt>
+        <dd><a href="tel:+31204185562">020 - 418 55 62</a></dd>
+
+        <dt>E-mail</dt>
+        <dd><a href="mailto:info@deschool.nl">E-mail de school</a></dd>
+
+        <dt>Website</dt>
+        <dd><a href="https://www.deschool.nl" target="_blank" rel="noopener">Bezoek schoolwebsite</a></dd>
+      </dl>
+    </li>
+
+    <!-- Kaart 3: Contactpersoon -->
+    <li>
+      <h2 class="kaart-titel">Contactpersoon</h2>
+
+      <figure class="contactpersoon">
+        <img
+          src="https://www.askoscholen.nl/images/www.askoscholen.nl/Fotos_Directie_Scholen/Jessica_Mulder_directeur_def.jpg"
+          alt="Portret van Jessica Mulder, directeur">
+        <figcaption>
+          <dl class="contactpersoon-lijst">
+            <dt>Functie</dt><dd>Directeur</dd>
+            <dt>Naam</dt><dd>Jessica Mulder</dd>
+          </dl>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+</section>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Sectie: ASKO Info -->
     <section class="derde-kaarten-2pagina">

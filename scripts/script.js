@@ -34,7 +34,8 @@ if (popup && openBtn && closeBtn) {
 
   // Wanneer ik op de knop klik:
   btn.addEventListener('click', () => {
-    // Dan voeg ik de class “is-open” toe of haal ik die weg van het menu.
+    // Dan voeg ik de class “is-open” toe of haal ik die weg van het menu.<!-- Bron: Code Explained. (2023). JavaScript - How to Create a Responsive Hamburger Menu using HTML CSS and JavaScript [Video]. YouTube. https://www.youtube.com/watch?v=flItyHiDm7E -->
+
     // Daarmee laat ik het menu zien of verberg ik het.
     const open = nav.classList.toggle('is-open');
 

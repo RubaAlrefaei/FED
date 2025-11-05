@@ -12,7 +12,7 @@
 </head> 
 
 <body> 
-<!-- Opmerking: Alt-teksten worden later nog toegevoegd. -->
+
 <!-- =========================================================
   HEADER-GEDEELTE
   Bevat: logo (link naar home), hoofdnavigatie, toegangs-/menu-knoppen, zoekveld
@@ -62,7 +62,7 @@
 
 <!-- ▲ einde knop -->
 
-  <!-- ▲▲ EINDE AANPASSING ▲▲ -->
+  
 
   <input type="search" aria-label="Zoeken"> <!-- Zoekveld  -->
 </header>
@@ -104,9 +104,6 @@
 
 
 
-
-
-
 <article>
   <h1>Basisschool De Achthoek</h1> <!-- Primaire paginatitel -->
 <p>
@@ -132,15 +129,15 @@
 
 <a href="#" class="link-knoppen">Lees meer over onze school</a> <!-- Primaire call-to-action -->
 
-
+  
+  
+<!-- Social media kaarten met dezelfde indeling als 'Laatste nieuws' -->
+<section class="social-kaart-container">
   <h2>
     Social media
   </h2>
-<!-- Social media kaarten met dezelfde indeling als 'Laatste nieuws' -->
-<section class="social-kaart-container">
 
-  <h6>dit word niet zichtbaar</h6>
-
+  
   <!-- Eerste kaart -->
   <section class="kaart-social">
     <img src="https://cdn.askoscholen.nl/www.achthoek.nl/template/img/logo-social.png" alt="">
@@ -283,11 +280,16 @@
 <a href="#" class="link-knoppen">Meer berichten</a> <!-- Link naar overzicht social berichten -->
 
 
+
+
+<section class="nieuws-container">
 <h2> 
     Laatste nieuws
 </h2> 
 
 <ul class="kaart-container"> <!-- Container voor drie nieuwskaarten + aanmeldknop -->
+
+
 
   <li class="kaart"> <!-- Nieuwskaart 1 -->
     <img src="images/kunst-spelen1.png" alt="Afbeelding van kinder tekenning"> <!-- Thumbnail/cover -->
@@ -355,6 +357,12 @@
     </li>
 </ul>
 
+</section>
+
+
+
+
+
 
 
 <!-- =========================================================
@@ -363,16 +371,32 @@
   - method="dialog" zorgt voor sluiten bij submit
 ========================================================= -->
 <!-- JS popup voor nieuwsbrief -->
-<dialog id="popup"> <!-- <dialog> is een popup-venster -->
-  <form method="dialog"> <!-- method="dialog" zorgt dat het formulier het popup kan sluiten -->
-    <p>Meld je aan voor de nieuwsbrief</p> <!-- Kop/intro van de modal -->
-    <label for="email">Vul je e-mailadres in:</label><br> <!-- Label gekoppeld aan input -->
-    <input type="email" id="email" required> <!-- e-mailadres verplicht -->
-    <br><br>
-    <button type="submit">Aanmelden</button> <!-- verstuurt en sluit automatisch -->
-    <button type="button" id="closePopup">Sluiten</button> <!-- sluitknop -->
+<!-- <dialog> is een speciaal HTML-element voor een popup-venster -->
+<dialog id="popup">
+
+  <!--method="dialog" zorgt dat het formulier het venster kan sluiten als je op een knop drukt -->
+  <form method="dialog">
+
+    <!-- Titel van het popup -->
+    <h2 class="popup-title">Meld je aan voor de nieuwsbrief</h2>
+    
+    <!-- Label hoort bij het invoerveld (toegankelijkheid en duidelijkheid) -->
+    <label for="email">Vul je e-mailadres in:</label><br>
+
+    <!-- Invoerveld voor het e-mailadres-->
+    <input type="email" id="email" required><br><br>
+    
+    <!-- Container voor de knoppen -->
+    <div class="buttons">
+
+    
+      <button type="submit">Aanmelden</button>
+
+      <!-- Deze knop sluit de popup handmatig (zonder versturen) -->
+      <button type="button" id="closePopup">Sluiten</button>
+    </div>
   </form>
-</dialog>  
+</dialog>
 
 <!-- Bron over <dialog> :
      2. W3Schools Dialog Tutorial: https://www.w3schools.com/tags/tag_dialog.asp
@@ -382,45 +406,53 @@
 
 
 <!-- =========================================================
-  ACTIVITEITEN / AGENDA-SECTIE
-  - aria-labelledby koppelt sectie aan de H2 voor betere toegankelijkheid
-========================================================= -->
-<!-- 
-  aria-labelledby  Dit zorgt ervoor dat screenreaders en andere hulpmiddelen deze sectie correct kunnen benoemen en herkennen,
-  waardoor de toegankelijkheid verbetert.
- 
---><section class="activiteiten" aria-labelledby="activiteiten">
-  <h2 id="activiteiten">Activiteiten</h2> <!-- Sectietitel, referentie van aria-labelledby -->
+  Section met activiteiten per maand.
+  - <section> groepeert alle gerelateerde content over één onderwerp.
+  - <h2> is de sectietitel.
+  - Elke <h3> markeert een maand.
+  - <ul><li> lijst individuele activiteiten.
+  - <time datetime=""> maakt datums machineleesbaar
+    ========================================================= -->
 
-  <h3>September 2025</h3> 
+  <section class="activiteiten">
+  <h2>Activiteiten</h2> <!-- Sectietitel binnen section, aria-labelledby niet meer nodig -->
+
+  <h3>September 2025</h3>
   <ul>
     <li>
       <p>
-        <time datetime="2025-09-24T09:00">24 sep, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
+        <time datetime="2025-09-24T09:00">24 sep, 09:00 – 10:30</time>
       </p>
-      <p>Informatiebijeenkomst nieuwe ouders</p> <!-- Activiteitomschrijving -->
+      <p>Informatiebijeenkomst nieuwe ouders</p>
+    </li>
+
+    <li>
+      <p>
+        <time datetime="2025-09-24T09:00">20 sep, 09:00 – 10:30</time>
+      </p>
+      <p>Informatiebijeenkomst nieuwe ouders</p>
+    </li>
+
+  </ul>
+
+  <h3>November 2025</h3>
+  <ul>
+    <li>
+      <p>
+        <time datetime="2025-11-24T09:00">24 nov, 09:00 – 10:30</time>
+      </p>
+      <p>Informatiebijeenkomst nieuwe ouders</p>
     </li>
   </ul>
 
-  <h3>November 2025</h3> 
+  <h3>Oktober 2025</h3>
   <ul>
     <li>
       <p>
-        <time datetime="2025-11-24T09:00">24 nov, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
+        <time datetime="2025-10-08T09:00">8 okt, 09:00 – 10:30</time>
       </p>
-      <p>Informatiebijeenkomst nieuwe ouders</p> <!-- Activiteitomschrijving -->
+      <p>Informatiebijeenkomst nieuwe ouders Engels</p>
     </li>
-  </ul>
-
-  <h3>Oktober 2025</h3> 
-  <ul>
-    <li>
-      <p>
-        <time datetime="2025-10-08T09:00">8 okt, 09:00 – 10:30</time> <!-- Machineleesbare datum/tijd -->
-      </p>
-      <p>Informatiebijeenkomst nieuwe ouders Engels</p> <!-- Activiteitomschrijving -->
-    </li>
-    
   </ul>
 </section>
 
@@ -443,8 +475,7 @@
   - 
 ========================================================= -->
 <section aria-labelledby="asko">
-  <h5 id="asko">Deze school is onderdeel van:</h5> <!-- Label voor de sectie -->
-  
+  <h2 id="asko">Deze school is onderdeel van:</h2> 
   <figure>
     <img 
       src="https://cdn.askoscholen.nl/www.askoscholen.nl/template/img/logo-asko-payoff.svg"
